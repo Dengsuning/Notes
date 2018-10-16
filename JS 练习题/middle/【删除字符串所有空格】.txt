@@ -1,0 +1,17 @@
+function clearSpace(str){
+    return str.split(" ").filter(function(item,index){
+        return Boolean(item)?true:false
+    }).join("")
+}
+
+console.log(clearSpace("he 0  llo  w"));
+
+// console.log(Boolean(false));
+// console.log(Boolean(null));
+// console.log(Boolean(0));
+// console.log(Boolean(""));
+// console.log(Boolean(undefined));
+// console.log(Boolean(NaN));
+// false * 6
+//
+console.log(Boolean(0),Boolean('0')); //false ,true

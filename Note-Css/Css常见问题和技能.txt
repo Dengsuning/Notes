@@ -1,0 +1,84 @@
+﻿1。不显示文本
+text-indent:-999px;overflow:hidden;
+使文本区域溢出页面之外，且溢出部分隐藏。
+
+2.全屏显示图片
+*{margin:0;padding:0;}
+html,body{width:100%;height:100;}
+img{width:100%;height:100%;}
+
+3.背景图片出现滚动条
+img{display:block;width:100%;height:100%;}
+
+4.脱离文档流的元素的父元素不会被撑起
+设置父元素overflow：hidden  防止父元素被撑破或强制父元素包含浮动元素
+
+5.背景图片可设置多张
+background-image:url(),url();
+background-repeat:repeat,no-repeat;
+
+6.将其他元素设置成列表的样式
+display：list-item;
+list-item-style:cricle;
+
+7.拖动到滚动条指定位置
+$("html,body").animate({scrollTop:$("#qy_name").offset().top},1000);
+
+var container = $('div'),
+    scrollTo = $('#row_8');
+
+container.scrollTop(
+    scrollTo.offset().top - container.offset().top + container.scrollTop()
+);
+
+// Or you can animate the scrolling:
+container.animate({
+    scrollTop: scrollTo.offset().top - container.offset().top + container.scrollTop()
+});​
+
+8.总结一下伪类与伪元素的特性及其区别：
+1.伪类本质上是为了弥补常规CSS选择器的不足，以便获取到更多信息；
+2.伪元素本质上是创建了一个有内容的虚拟容器；
+3.CSS3中伪类和伪元素的语法不同；
+4.可以同时使用多个伪类，而只能同时使用一个伪元素；
+
+9.清楚元素标签的默认样式  
+appearance：none；/*chorm&firfox*/ 
+select::-ms-expand{display：none;}/*IE*/
+
+
+
+9.使div下的图片自适应div的大小 
+div img{
+　　max-width:100%;
+　　height:auto;
+}
+这里div 要给固定的宽度
+
+
+10.聊天对话框
+<div class="send">
+		<div class="arrow"></div>
+		<p>我们发现，原来当div的宽度和高度都是0的时候，它的整个边框是由四个三角形组成的，每一边为一个三角形，那么我们就可以利用这个特点，来做可爱的小尖角</p>
+	</div>
+.send {
+position:absolute;
+width:250px;
+height:auto;
+background:#F8C301;
+border-radius:5px; 
+margin:30px auto 0;
+z-index:999;
+}
+
+.arrow {
+position:absolute;
+top:5px;
+right:-16px; 
+width:0;
+height:0;
+font-size:0;
+border:solid 8px;
+border-color:transparent transparent transparent #F8C301;
+z-index:999;
+}

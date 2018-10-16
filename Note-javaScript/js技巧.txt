@@ -1,0 +1,5 @@
+﻿1.禁止拖动图片
+
+for（i in document.images）{
+	document.images[i].ondragstart = function(){return false;}
+}

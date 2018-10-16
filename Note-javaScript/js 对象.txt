@@ -1,0 +1,161 @@
+Number
+	所有数字均为64位，不定义整数，浮点数，短长等
+	全位浮点类型
+	长度  >>>  15位.17位
+
+	浮点运算并总是正确的
+	var x = 0.2 + 0.1 //result will be 0.30000000000004
+
+	JavaScript能表示的最大值>>>Infinity
+					 最小值>>>-Infinity
+
+	零作为除数，结果为无穷大
+
+	NaN>>>非数字值得特殊值   isNaN("1000") 返回true
+
+	属性
+		MAX_VALUE
+		MIN_VALUE
+		NEGATIVE_INFINITY
+		POSITIVE_INFINITY
+		NaN
+	方法
+		toExponential() //指数计数
+		toFixed()		//指定小数位数
+		toPrecision()	//指定长度
+		toString(10|8|16)	进制转换成字符串
+		valueOf()		//	返回一个 Number 对象的基本数字值
+
+String
+	单双引号都可以
+	可用索引提取字符'123'.[2] = 3
+
+	属性
+		length
+	方法
+		charAt()		返回在指定位置的字符。
+		
+		charCodeAt()	返回在指定的位置的字符的 Unicode 编码。
+		
+		concat()	连接两个或更多字符串，并返回新的字符串。
+		
+		fromCharCode()	将 Unicode 编码转为字符。
+		
+		indexOf()	返回某个指定的字符串值在字符串中首次出现的位置。
+		
+		lastIndexOf()	从后向前搜索字符串。
+		
+		match()	查找找到一个或多个正则表达式的匹配。
+		
+		replace()	在字符串中查找匹配的子串， 并替换与正则表达式匹配的子串。
+		
+		search()	查找与正则表达式相匹配的值。
+		
+		slice()	提取字符串的片断，并在新的字符串中返回被提取的部分。
+		
+		split()	把字符串分割为字符串数组。
+		
+		substr()	从起始索引号提取字符串中指定数目的字符。
+		
+		substring()	提取字符串中两个指定的索引号之间的字符。
+		
+		toLowerCase()	把字符串转换为小写。
+		
+		toUpperCase()	把字符串转换为大写。
+		
+		trim()	去除字符串两边的空白
+		
+		valueOf()	返回某个字符串对象的原始值。
+
+
+	String HTML 包装方法
+
+		HTML 包装方法返回加入了适当HTML标签的字符串。
+
+		方法	描述
+		anchor()	创建 HTML 锚。
+		big()	用大号字体显示字符串。
+		blink()	显示闪动字符串。
+		bold()	使用粗体显示字符串。
+		fixed()	以打字机文本显示字符串。
+		fontcolor()	使用指定的颜色来显示字符串。
+		fontsize()	使用指定的尺寸来显示字符串。
+		italics()	使用斜体显示字符串。
+		link()	将字符串显示为链接。
+		small()	使用小字号来显示字符串。
+		strike()	用于显示加删除线的字符串。
+		sub()	把字符串显示为下标。
+		sup()	把字符串显示为上标。
+
+
+数组
+	 var myCars=new Array();
+	 myCars[0]="Saab"; 
+	 var myCars = []
+	 myCars["first"] = "key"
+
+数组可用对象创建和字面量的方式创建，可使用关联数组。
+关联数组只能用arr[key]=value的方式建立，且不能用下标索引
+数组可存储不同的类型，长度动态变化
+
+	方法
+		join()
+		push()和pop()
+		shift() 和 unshift()
+		sort()
+		reverse()
+		concat()
+		slice()
+		splice()
+		indexOf()和 lastIndexOf() （ES5新增）
+		forEach() （ES5新增）
+		map() （ES5新增）
+		filter() （ES5新增）
+		every() （ES5新增）
+		some() （ES5新增）
+		reduce()和 reduceRight() （ES5新增）
+
+Date
+	初始化
+		new Date() //当前时间
+		new Date(时间戳) //相对于1/1/1970 24:00 的偏移量
+	    new Date(datestring)   
+	    new Date(year,month,date[,hour,minute,second,millisecond])
+	方法
+		date.setTime()  -------以毫秒设置时间
+		date.setDate()  -------设置月中某一天(1-31)
+		date.setMonth() -------设置年中某一月(0-11)
+		date.setFullYear() ----设置年份(4位数,2位数不支持了)
+		date.setHours() -------设置某一天中小时(0-23)
+		date.setMinutes()   ---设置某一小时中分钟(0-59)
+		date.setSeconds()   ---设置某一小时中秒数(0-59)
+
+		date.getDate()  -------获取月中某一天(1-31)
+		date.getMonth() -------获取年中某一月(0-11)
+		date.getDay()   -------获取星期中某一天的编号(0-6),星期天为0
+		date.getFullYear()  ---获取四位数年份(2位数被代替了)
+		date.getHours() -------获取天中的小时(0-23)
+		date.getMinutes()   ---获取小时中分钟(0-59)
+		date.getSeconds()   ---获取分钟中秒(0-59)
+		date.getMillSeconds() -获取毫秒值(0-999)
+		date.getTime()  -------获取从1970.1.1到现在毫秒
+		Date.parse(param)   -------获取从1970.1.1到日期字符串的毫秒数
+
+		date.toString() -----返回Mon Jul 24 2017 14:47:31 GMT+0800 (中国标准时间)
+		date.toTimeString()--返回14:49:06 GMT+0800 (中国标准时间)
+		date.toDateString()--返回Mon Jul 24 2017
+		date.toLocaleString()返回2017/7/24 下午2:51:34
+		date.toLocaleDateString() 返回2017/7/24
+		date.toLocaleTimeString() 返回下午2:52:32
+
+
+Window的子对象主要有如下几个：
+
+JavaScript document 对象
+JavaScript frames 对象
+JavaScript history 对象
+JavaScript location 对象
+JavaScript navigator 对象
+JavaScript screen 对象
+
+		

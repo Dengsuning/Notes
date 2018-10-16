@@ -1,0 +1,94 @@
+如果从类的内部访问const或者static变量或者方法,那么就必须使用自引用的self
+self与$this的功能极其相似，但二者又不相同。$this不能引用静态成员和常量。self更像类本事，而$this更像是实例本身
+
+
+
+sleep(1)	//延迟执行，秒计
+
+new PDO("dbtype:host=localhost;dbname=test",username,pass,array(PDO::ATTR_PERSISTENT => true))
+
+//默认这个不是长连接，如果需要数据库长连接，需要最后加一个参数：array(PDO::ATTR_PERSISTENT => true)
+
+try {
+    $conn = new PDO("mysql:host=$servername;", $username, $password);
+    echo "连接成功"; 
+}
+catch(PDOException $e)
+{
+    echo $e->getMessage();
+}
+
+关闭连接
+$conn =null;
+
+try{
+$this->pdo->query("SET NAMES 'UTF8'"); //防止中文乱码,执行PDO之前都该设置编码
+}
+catch(Exception $e){
+	$e->getMessage()
+	$e->getline
+	$e->getFile
+
+	exit(status)  //函数输出一条消息，并退出当前脚本。
+}
+
+POD -> exec($sql)
+PDO -> query($sql)
+
+pdoResult -> rowCount()
+
+预处理
+$prepare = pdo -> prepare($sql)
+pdo ->query("set names 'UTF-8'")
+$prepare = pdo ->execute()
+
+
+   while($this->rowz = $this->prepare->fetch()) {
+
+	    return $this->row;
+
+	   }
+	}
+
+PDOStatement::setFetchMode — 为语句设置默认的获取模式。
+PDOStatement//常为结果集对象
+
+
+事务处理
+pdo->beginTransaction();
+$result = pdo->exec($sql);
+
+if($result){
+	pdo->commit();
+}else{
+	pdo->rollback();
+}
+
+
+自定义PDO预定义常量设置
+
+pdo -> setAttribute(PDO::ATTR_CASE,$mode) //$mode = PDO::CASE_NATURAL | UPPER | LOWER
+
+pdo -> query("set users name 'UTF-8'")
+$result = pdo -> query($sql)
+$result->setFetchMode($FetchAction);
+return $result -> fetchALl()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

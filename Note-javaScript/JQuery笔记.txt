@@ -1,0 +1,42 @@
+1.fadeIn fadeOut fadeTo fadeToggle 能自动实现隐藏和显示。无需再设置hide和show方法。
+
+2.滚动条滚动到指定位置
+$("html,body").animate({scrollTop:$("#qy_name").offset().top},1000);
+
+3.$（selector）.index();//获取该元素相对其同胞元素位置
+
+4.创建的节点不会自动添加到文档，许使用append prepend after before等方法添加到文档。
+
+5.监听滚轮
+$(document).on('mousewheel DOMMouseScroll',function(e){
+			  var detail = (e.originalEvent.wheelDelta && (e.originalEvent.wheelDelta>0?1:-1))/*chorm IE*/
+			  ||(e.originalEvent.detail  &&(e.originalEvent.detail>0?-1:1));//firfox
+			 if(detail>0){console.log("Up");}
+			 else {
+			 	console.log("Down");
+			 }
+		})
+
+6.var jq=jQuery.noConflict()，帮助您使用自己的名称（比如 jq）来代替 $ 符号。
+
+
+7.JQuery的animate（）方法不支持transform属性，可使用transition：all 1s；和animate（）的回调函数实现：
+	$("#mainNav").animate({},function(){
+				$("#mainNav").css({"transform":'scale(1,1)'});
+			});
+
+8.jQuery判断当前元素是第几个元素
+
+如果我们点击任何一个li标签，想知道当前点击的是第几个li标签，可以使用下面的代码：
+
+$("ul li").click(function () {
+    var index = $("ul li").index(this);
+    alert(index);
+ });
+
+9.jQuery 获取第N个元素
+
+同理，如果我们要获取第二li标签元素，可以使用下面的代码
+
+var element=$("ul li").eq(1);
+alert($(element).html());

@@ -1,0 +1,328 @@
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+
+您可以使用边缘实用程序，例如.mr,ml-auto强制兄弟列彼此远离。
+<div class="row">
+  <div class="col-md-4">.col-md-4</div>
+  <div class="col-md-4 ml-auto">.col-md-4 .ml-auto</div>
+</div>
+<div class="row">
+  <div class="col-md-3 ml-md-auto">.col-md-3 .ml-md-auto</div>
+  <div class="col-md-3 ml-md-auto">.col-md-3 .ml-md-auto</div>
+</div>
+<div class="row">
+  <div class="col-auto mr-auto">.col-auto .mr-auto</div>
+  <div class="col-auto">.col-auto</div>
+</div>
+
+
+html
+   -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+
+a
+   -webkit-text-decoration-skip: objects;
+
+caption
+  caption-side: bottom
+
+button,
+select
+  text-transform: none
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+
+button::-moz-focus-inner
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+
+::-webkit-file-upload-button
+
+[hidden] {
+  display: none !important;
+}
+.hx           x=1-6
+.display-x    x=1-4
+
+.mark {
+  padding: 0.2em;
+  background-color: #fcf8e3;
+}
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline-item {
+  display: inline-block;
+}
+
+.list-inline-item:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.blockquote {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.blockquote-footer {
+  display: block;
+  font-size: 80%;
+  color: #6c757d;
+}
+
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+
+.col-auto
+.col-sm-auto
+.col-md-auto
+.col-lg-auto
+.col-xl-auto
+
+使用.order-类来控制内容的可视顺序。
+.order-*（例如，.order-1.order-md-2)
+</div>
+还有响应.order-first和.order-last类order通过分别应用order: -1和order: 13（order: $columns + 1）来改变元素。
+这些类也可以.order-*根据需要与编号的类混合。
+
+* = first|last|1-12
+ .offset-*
+* = 1~11
+
+
+
+
+
+
+
+.form-control-file,
+.form-control-range 
+.form-control-plaintext
+
+.col-form-label
+.col-form-label-sm|lg
+
+.input-group-append 
+.input-group-prepend
+.input-group-text
+
+.input-group-sm 
+.input-group-sm 
+
+
+
+.form-text {
+
+.form-row {
+
+.valid-feedback 
+
+.valid-tooltip
+
+
+.collapsing 
+.dropup,
+.dropright,
+.dropdown,
+.dropleft
+
+.btn-group-vertical
+.btn-toolbar
+.dropdown-toggle-split
+
+.custom-control
+.custom-control-inline
+.custom-control-input
+.custom-control-label
+.custom-file
+.custom-file-input
+.custom-file-label
+.custom-checkbox
+.custom-radio
+.custom-select
+.custom-select-sm | lg
+.custom-range
+
+.nav-fill
+.nav-justified
+
+.card-group
+.card-deck
+.card-columns
+.accordion
+
+.align-baseline
+.align-top
+.align-middle
+.align-bottom
+  vertical-align: text-bottom !important;
+
+.align-text-bottom {
+  vertical-align: text-bottom !important;
+.align-text-top {
+
+.d-none
+.d-inline
+.d-inline-block
+.d-block 
+.d-table
+.d-table-row
+.d-table-cell 
+.d-flex
+.d-inline-flex
+
+.d-*-none|inline ....
+* = sm | md|lg|xl
+
+.embed-responsive 
+.embed-responsive-item
+
+.flex-row
+.flex-column 
+.flex-row-reverse
+.flex-column-reverse
+.flex-wrap
+.flex-nowrap
+.flex-wrap-reverse
+.flex-fill
+.flex-grow-0
+.flex-grow-1
+.flex-shrink-0
+.flex-shrink-1
+.justify-content-start
+.justify-content-end
+.justify-content-center
+.justify-content-between
+.justify-content-around 
+.align-items-start
+.align-items-end 
+.align-items-center
+.align-items-baseline
+.align-items-stretch
+.align-content-start
+.align-content-end
+.align-content-center
+.align-content-between
+.align-content-around
+.align-content-stretch
+.align-self-auto
+.align-self-start
+.align-self-end
+.align-self-center
+.align-self-baseline
+.align-self-stretch
+
+.flex-*-row....align-self-*-stretch
+
+.float-left
+.float-right
+.float-none
+
+.float-*-left ...
+
+.position-static
+.position-relative
+.position-absolute
+.position-fixed
+.position-sticky
+
+.fixed-top
+.fixed-bottom
+
+
+.sr-only
+.sr-only-focusable
+
+.shadow-sm
+.shadow
+.shadow-lg
+.shadow-none
+
+.m-auto
+.m-0~5
+.mt-0~5
+.mr-0~5
+.mb-0~5
+.ml-0~5
+.mx-0~5
+.my-0~5
+
+.p-auto
+.p-0~5
+.pt-0~5
+.pr-0~5
+.pb-0~5
+.pl-0~5
+.px-0~5
+.py-0~5
+
+w-auto     h-auto
+w-25        h-25
+w-50        h-50
+w-75        h-75
+w-100      h-100
+mw-100  mh-100 （均为百分比）
+
+m-*-1 * = sm|md|lg|xl
+p-*-1 * = sm|md|lg|xl
+
+.text-hide
+.visible 
+.invisible 
+
+
+.card-block //添加内边距padding,多用于没图像时
+
+通过组合d-{breakpoint}-none与d-{breakpoint}-block
+可以实现范围区间的元素可见性
+
+屏幕尺寸		类
+隐藏在所有人身上	.d-none
+只在xs上隐藏	.d-none .d-sm-block
+隐藏在sm上	.d-sm-none .d-md-block
+只在md上隐藏	.d-md-none .d-lg-block
+隐藏在lg上	.d-lg-none .d-xl-block
+只在xl上隐藏	.d-xl-none
+所有人都可以看到	.d-block
+仅在xs上可见	.d-block .d-sm-none
+仅在sm上可见	.d-none .d-sm-block .d-md-none
+仅在md上可见	.d-none .d-md-block .d-lg-none
+仅在lg上可见	.d-none .d-lg-block .d-xl-none
+仅在xl上可见	.d-none .d-xl-block
+
+btn可以作用于单选和复选框上，但是要用.btn.group-toggle包裹，
+添加data-toggle="buttons"数据属性，
+作用是将默认的checkbox和radio样式隐藏，显示bootstrap按钮样式，并通过JQuery【$().button('toggle')切换推送状态。为按钮提供已激活的外观。】
+和data-toggle控制激活的按钮样式。
+
+请注意，预先检查的按钮要求您手动将【.active类添加到输入中<label>】。
+
+<div class="btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="checkbox" checked autocomplete="off"> Checked
+  </label>
+</div>

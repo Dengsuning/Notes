@@ -1,0 +1,102 @@
+﻿modal
+	button.btn.btn-primary[data-toggle="modal" data-target="#modaltest"
+	div.modal.fade#modaltest
+		div.modal-dialog
+			div.modal-content
+				div.modal-header
+					h5.modal-tilte
+					button[type="button" data-dismiss="modal"].close
+						span{&times;}
+				div.modal-body
+					...some html
+				div.modal-footer
+					button[type="button" data-dismiss="modal"].btn.btn-secondary
+					button[type="button"].btn.btn-primary{sava}
+
+
+.modal
+    .modal-dialog[.modal-dialog-cnetered(屏幕垂直居中).modal-sm|lg]
+        .modal-content
+	    .modal-header
+		data-dismiss="modal">{&times;}
+	    .modal-body
+	    .modal-footer
+
+javascript
+	$().modal("toggle")
+	   .modal("show")
+	   .modal("hide")
+	   .modal("handleUpdate")//如果模态的高度在打开时发生变化（即如果出现滚动条），则手动重新调整模态的位置。
+	   .modal("dispose") //破坏元素的模态
+活动
+Bootstrap的模态类公开了一些用于挂钩到模态功能的事件。所有模态事件都在模态本身（即在<div class="modal">）处被触发。
+
+事件类型	描述
+show.bs.modal	show调用实例方法时会立即触发此事件。如果由单击引起，则单击的元素可用作relatedTarget事件的属性。
+shown.bs.modal	当模态对用户可见时将触发此事件（将等待CSS过渡完成）。如果由单击引起，则单击的元素可用作relatedTarget事件的属性。
+hide.bs.modal	hide调用实例方法时会立即触发此事件。
+hidden.bs.modal	当模态完成对用户的隐藏时将触发此事件（将等待CSS转换完成）​​。复制
+$('#myModal').on('hidden.bs.modal', function (e) {
+  // do something...
+})
+
+------------------------
+
+button[type="button"]
+	[data-trigger="focus"]
+	data-placement="left|right|top|bottom"
+	data-toggle="popover" title="Popoer Title"  data-content="this is the main text"
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+
+
+.popover("hide")
+.popover("show")
+.popover("toggle")
+.popover("dispose")
+.popover("enable")
+.popover("disable")
+.popover("toggleEnabled")
+.popover("update")
+
+活动
+事件类型	描述
+show.bs.popover	show调用实例方法时会立即触发此事件。
+shown.bs.popover	当弹出窗口对用户可见时将触发此事件（将等待CSS过渡完成）。
+hide.bs.popover	hide调用实例方法时会立即触发此事件。
+hidden.bs.popover	当弹出窗口完成对用户的隐藏时将触发此事件（将等待CSS转换完成）​​。
+inserted.bs.popover	show.bs.popover将弹出窗口模板添加到DOM 后，将触发此事件。复制
+$('#myPopover').on('hidden.bs.popover', function () {
+  // do something…
+})
+
+------------------------
+
+Tooltip
+button[data-toggle="tooltip"]
+	data-placement="top|bottom|right|left"
+	data-title="conent"
+可以自定义提示框内html代码
+	data-html="<h3>this is the custom title</h3>"
+
+.tooltip("hide")
+.tooltip("show")
+.tooltip("toggle")
+.tooltip("dispose")
+.tooltip("enable")
+.tooltip("disable")
+.tooltip("toggleEnabled")
+.tooltip("update")
+
+活动
+事件类型	描述
+show.bs.tooltip	show调用实例方法时会立即触发此事件。
+shown.bs.tooltip	当工具提示对用户可见时将触发此事件（将等待CSS转换完成）​​。
+hide.bs.tooltip	hide调用实例方法时会立即触发此事件。
+hidden.bs.tooltip	当工具提示完成对用户的隐藏时将触发此事件（将等待CSS转换完成）​​。
+inserted.bs.tooltip	show.bs.tooltip将工具提示模板添加到DOM 后，将触发此事件。复制
+$('#myTooltip').on('hidden.bs.tooltip', function () {
+  // do something…
+})

@@ -1,0 +1,13 @@
+function getFibonacci(n){
+    var result = [0,1]
+    var counter = 2 //从第二位开始 也就是第一次计算 1 + 1 = 2
+    do{
+        if (n < 2) {return result}
+        result.push(result[result.length-1]+result[result.length-2])
+        counter ++
+
+    }while(counter <= n)
+    return result.shift(),result
+}
+
+console.log(getFibonacci(7));

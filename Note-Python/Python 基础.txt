@@ -1,0 +1,473 @@
+﻿python 默认 Ascall保存 输入英文意外的字符报错
+解决办法:在文件最开头添加 #coding:utf-8
+
+ type() 函数可以用来查询变量所指的对象类型
+  isinstance(a, int) >>> True OR False
+  
+优先级
+
+打印对象 dir(str) 
+双下划线为静态方法
+对象方法 str.__add__()
+
+打印函数参数情况 help(str.__add__)
+
+# 单行注释
+ ''' 和 """  多行注释
+
+ 缩进 代表 代码块 {}
+ eg:	if true ：
+ 			print("success");
+ 		else :
+ 			print("false");
+
+print("string") // 换行输出
+print("string",end=""); // 不换行输出
+
+变量下划线
+_str 类似私有变量 只能通过类接口访问 不能import
+__str private 本身访问
+__add__ 特殊方法
+
+"encoding": "utf-8",
+"working_dir": "$file_path",
+"shell_cmd": "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python35-32\\python.exe -u \"$file\"",
+"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+"selector": "source.python"
+
+
+多行语句 用 \ 连接
+
+python中数字有四种类型：整数、布尔型、浮点数和复数
+
+字符串：
+	'字符串' "字符串" """多行字符串""" 
+	str = "hello world!"
+
+字符串截取
+	str[0:-2]
+                截取内容包括起始位置不包含结束位置
+	str[起始下标：结束下标]
+	结束下标 > 0  下标
+			< 0  倒数第N个
+	转义用\ eg:\n
+	字符串前加r 可防止转义 eg:print(r"\n"); >>> \n
+
+
+
+在 python 用 import 或者 from...import 来导入相应的模块。
+
+将整个模块(somemodule)导入，格式为： import somemodule
+从某个模块中导入某个函数,格式为： from somemodule import somefunction
+从某个模块中导入多个函数,格式为： from somemodule import firstfunc, secondfunc, thirdfunc
+将某个模块中的全部函数导入，格式为： from somemodule import *
+
+list——列表
+不许有相同类型——类似C#泛型
+eg:list = ["google","runboot",1,25]
+
+list 和 str x相同  可以截取list[start:end]
+可添加更新 
+list.append('val')
+lsit[0] = val
+list.insert(index,obj)
+del list[2]
+
+list.index(obj) // 匹配的第一个值得索引
+list.extend(seq) // 连接新序列的值
+list.reverse()
+list.count(obj)  // 统计obj出现次数
+list.pop([index=-1]) //移除指定下标值，默认最后一个，并返回被移除的值
+list.remove(obj) // 移除列表中匹配的第一个项
+list.sort(cmp,key,reverse) // 默认升序
+list.cory()
+list.clear()
+
+
+len(list)
+max(list)
+min(list)
+list(seq) // 元组转换为列表
+
+
+元组——与列表相似但不能修改——类似数组
+tup = ("google","runboot",5,8)
+只包含一个元素时，元素后面需要加逗号，否则（）会被编译为运算符
+tup = ("first",)
+其他与list类似
+元组无其他方法，只能截取返回对象
+tup[0:2]
+tuple(sel) // 将列表转换为元组
+
+
+字典——类似PHP关联数组
+dictionary = {"name":"tom","sex":"man","age":5}
+dictionary[name]
+
+直接通过dictionary[]进行添加修改
+
+dictionary.clear() // 清空字典
+del dictionary["naem"] //删除字典值
+
+len(dictionary) // 计算字典个数
+str(dictionary) // 输出字典
+
+dictionary.clear()
+dictionary.cory()
+dictionary.fromkeys(sqe,[vals]) // 以键值创建新字典，可选参数为键值对应的值
+dictionary.get(key,default=None) //返回指定键的值，如果值不在字典中返回default值
+dictionary.items() // 以列表返回键值元组数组
+dictionary.keys()  // 以列表返回所有的键
+dictionary.values() // 以列表返回所有的值
+dictionary.setdefault(key,default=None) //设置默认值，都则默认为None
+dictionary.update(dict2) // 更新dict2 的键值对 为dictionary的值
+dictionary.pop(key,[default]) // 删除指定键的值，否则返回默认值
+dictionary.popitem() //随即返回并删除一对键值对
+
+集合
+集合（set）是一个无序不重复元素的序列。自动去重
+可以使用大括号 { } 或者 set() 函数创建集合，注意：创建一个空集合必须用 set() 而不是 { }，因为 { } 是用来创建一个空字典。
+会将传入的序列碎片化————转化成独立的子元素
+基本操作：
+com.add(obj)
+com.update(obj,[obj1]) // 传入 list [1,2]>>>{1,2}  dict——只传入key
+com.remove(obj)
+com.discard(obj)//移除
+com.pop() //随即删除
+
+条件控制
+if语句的关键字为：if – elif – else
+
+循环
+while 条件 :
+	coding
+
+while 条件 ：
+	coding
+else:
+	coding
+
+for <variable> in <sequence>:
+	coding
+	or break
+else:
+	coding
+
+都可以用 break 和 continue
+
+迭代与生成
+迭代器是一个可以记住遍历位置的对象
+it = iter(list)
+next(it)
+迭代对象也可以用for遍历
+
+生成器yield
+生成器是一个返回迭代器的函数，只能用于迭代操作，更简单点理解生成器就是一个迭代器。
+
+# 注意，赋值语句a, b = b, a + b
+                        # 相当于：
+                        # t = (b, a + b)    #t是一个tuple（元组）
+                        # a = t[0]
+                        # b = t[1]
+
+def fibonacci(n): # 生成器函数 - 斐波那契
+    a, b, counter = 0, 1, 0
+    while True:
+        if (counter > n): 
+            return
+        yield a
+        a, b = b, a + b
+        counter += 1
+f = fibonacci(10) # f 是一个迭代器，由生成器返回生成
+ 
+while True:
+    try:
+        print (next(f), end=" ")
+    except StopIteration:
+        sys.exit()
+
+执行以上程序，输出结果如下：
+
+0 1 1 2 3 5 8 13 21 34 55
+
+
+函数 以 def 定义 除了def与冒号缩进外与JS 的function 相同
+
+numbers str tuple 不可变对象 ———— 按值传递
+list dict 等 可变对象———— 引用传递
+
+
+
+
+严格传参  参数不能省略
+
+关键字参数  通过传入与定义函数时相同的参数名可让参数打乱顺序，Python会自动寻值
+
+不定长参数  函数参数加*号会将多余参数以元祖的形式存储
+双**号会以字典的形式存储
+def function（option，option1，*varTuple）:
+
+关键字参数必须跟随在位置参数后面! 因为python函数在解析参数时, 是按照顺序来的, 位置参数是必须先满足, 才能考虑其他可变参数.
+
+
+
+
+匿名函数
+
+用 lambda 来创建匿名函数。lambda的主体是一个表达式
+lambda 函数拥有自己的命名空间，且不能访问自己参数列表之外或全局命名空间里的参数
+
+sum = lambda arg1, arg2: arg1 + arg2
+sum( 10, 20 )
+
+变量作用域
+L （Local） 局部作用域
+E （Enclosing） 闭包函数外的函数中
+G （Global） 全局作用域
+B （Built-in） 内建作用域
+以 L –> E –> G –>B 的规则查找
+
+Python 中只有模块（module），类（class）以及函数（def、lambda）才会引入新的作用域，其它的代码块（如 if/elif/else/、try/except、for/while等）是不会引入新的作用域的
+
+当内部作用域想修改外部作用域的变量时，就要用到global和nonlocal关键字了。————全局和闭包
+num = 1
+def fun1():
+    global num  # 需要使用 global 关键字声明
+    print(num) 
+    num = 123
+    print(num)
+fun1()
+>>>1   123
+
+def outer():
+    num = 10
+    def inner():
+        nonlocal num   # nonlocal关键字声明
+        num = 100
+        print(num)
+    inner()
+    print(num)
+outer()
+>>> 100 100
+
+模块
+类似C#的命名空间，空间名=文件名
+导入——import
+from modul import sectionname 导入模块中的指定部分
+
+每个模块都有一个__name__属性，当其值是'__main__'时，表明该模块自身在运行，否则是被引入。
+
+if __name__ == '__main__':
+   print('程序自身在运行')
+else:
+   print('我来自另一模块')
+
+字符串转换
+str()  repr()//可转义特殊字符
+
+"{0},{name}".format(x,name="tom")
+{0:3f} //保留小数点后3位
+{0:10} //保证宽度
+
+
+读取键盘输入
+input("请输入")
+>>>请输入 教程
+
+
+面向对象——类
+class className :
+    def __init__(self):
+        classname.v = 12345
+    i = 456789
+    def f(self):
+        return self.v+self.i
+静态方法
+@staticmethod
+def functionName():
+    return x
+使用@staticmethod申明，无需传递self
+
+类的实例属性和JS相同 可随时添加 通过. 引用 但不能通过[]引用
+
+self代表类的实例，而非类
+类的方法与普通的函数只有一个特别的区别——它们必须有一个额外的第一个参数名称, 按照惯例它的名称是 self。
+
+
+
+继承 >>> class parent:
+            def __init__(self,arg):
+                self.arg = arg
+        
+        class parent1:
+            def __init__(self,arg):
+                self.arg = arg
+
+        class child(parent,parent1): #多继承
+            def __init__(self):
+                supper(parent,self).__init__() #调用父类方法
+
+supper(childName,child实例).parentFunction(),在子类定义中调用可省略supper的参数
+
+__私有变量  __私有方法  在类内部调用需self
+
+_类保护变量   本身及子类可调用
+
+除了 私有变量、方法  其他变量和方法都会被子类（subClass）继承 并且作为自身的一部分 
+
+
+抽象类
+首先要导入模块
+from abc import ABCMeta ,abstractmethod
+
+抽象类要申明其元类（定义类的类）
+class abstract(metaclass = ABCMeta)
+#抽象方法申明
+@abstractmethod
+def function(self):pass
+
+可以在函数里面申明类，
+但是要调用函数内的类需要调用前申明
+
+
+
+捕获异常
+try：
+    raise ErrorFunction("error")
+except ErrorFunction:
+    print('An exception flew by!')
+    raise
+else:
+finally:
+
+
+
+with as 替代 try finally语句
+
+with所求值的对象必须有一个__enter__()方法，一个__exit__()方法
+with open(file_name) as f
+
+执行open返回的文件对象的__enter__方法，再将对象返回给as的变量
+最后执行文件对象的__exit__方法
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+遍历技巧
+键值对——字典，集合>>> items()
+dict = {"key":"value"}>>>for k, v in dict.items()； 
+
+枚举列表，元组>>> enumerate()————获得索引和对应值
+for i, v in enumerate(["tic","tac","toe"]):
+
+同时遍历两个或更多的序列 用 zip()
+questions = ['name', 'quest', 'favorite color']
+answers = ['lancelot', 'the holy grail', 'blue']
+for q,a in zip(questions,answers):
+    print("values1:{0}, values:{1}".format(q,a))
+
+
+
+
+
+
+
+
+
+
+
+
+Excel 操作
+安装读取Excel文件模块：cmd
+pip3 install xlrd
+pip3 isntall xlwt
+
+import xlrd
+
+    data = xlrd.open_workbook("test.xlsx") #获取文件数据
+    table = data.sheets()[0]  #获取子表
+    nrows = table.nrows  #过去行数
+    ncols = table.ncols  #获取列数
+
+    #获取整行和整列的值，以列表形式返回
+    rows = table.row_values(0)
+    cols = table.col_values(0)
+
+    #获取单元格数据
+    cell_A1 = table.cell_value(0,0)
+    cell_A2 = table.row(1)[0].value
+    cell_A3 = table.col(0)[1].value
+
+
+写入Excel
+    workbook = xlwt.Workbook(encoding="utf-8",style_compression=0) #编码和是否压缩
+    sheet = workbook.add_sheet("test",cell_overwrite_ok=True) #表名和是否覆盖单元格
+    sheet.write(0, 0, 'EnglishName')  # 其中的'0-行, 0-列'指定表中的单元，'EnglishName'是向该单元写入的内容
+
+    workbook.save(r'd:\test1.xls') # 保存
+
+追加数据
+#读取文件并复制，对副本进行添加再替换源文件
+import xlrd
+import xlwt
+import xlutils.copy
+
+data = xlrd.open_workbook("test.xlsx")
+ws = xlutils.copy.copy(data)
+table = ws.get_sheet(0)
+table.write(0,8,"WWW")
+ws.save("test.xlsx")
+
+
+
+
+
+
+
+
+
+
+
+
+
+sublime python3 ctrl+b
+	https://blog.csdn.net/vertigozz/article/details/54574006
+
+SublimeREPL配置Python运行命令，更换Python路径
+	https://blog.csdn.net/dchen1993/article/details/53307263
+
+Sublime Text\Data\Packages\SublimeREPL\config\Python\Main.sublime-menu
+将 Run current file 的 cmd 路径改为Python路径即可
+
+快捷键——keysbinding——user 
+{
+    "keys": ["f5"],
+    "caption": "SublimeREPL: Python - RUN current file",
+    "command": "run_existing_window_command",
+    "args": {
+        "id": "repl_python_run",
+        "file": "config/Python/Main.sublime-menu"
+    }
+}
+

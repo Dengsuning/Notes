@@ -1,0 +1,11 @@
+sorted函数sorted(iterable, cmp=None, key=None, reverse=False)
+iterable：是可迭代类型;
+cmp：用于比较的函数，比较什么由key决定;
+key：用列表元素的某个属性或函数进行作为关键字，有默认值，迭代集合中的一项;
+    operator.itemgetter(1)表示用第2个数据项排序
+reverse：排序规则. reverse = True  降序 或者 reverse = False 升序，有默认值。
+
+重复数组——贴砖
+tile([1,2,3],(2,2))//重复两行，重复两列
+[[1 2 3 1 2 3]
+ [1 2 3 1 2 3]]

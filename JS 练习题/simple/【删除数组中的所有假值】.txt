@@ -1,0 +1,38 @@
+//在JavaScript中，假值有false、null、0、""、undefined 和 NaN。
+
+// console.log(Boolean(false));
+// console.log(Boolean(null));
+// console.log(Boolean(0));
+// console.log(Boolean(""));
+// console.log(Boolean(undefined));
+// console.log(Boolean(NaN));
+// false * 6
+
+function bouncer(arr){
+    return arr.filter((item,index)=>{
+        return Boolean(item)
+    })
+}
+
+console.log(bouncer([7, "ate", "", false, 9]));
+
+// console.log(Boolean(false));
+// console.log(Boolean(null));
+// console.log(Boolean(0));
+// console.log(Boolean(""));
+// console.log(Boolean(undefined));
+// console.log(Boolean(NaN));
+// false * 6
+
+// console.log(Number(false));
+// console.log(Number(null));
+// console.log(Number(0));
+// console.log(Number(""));
+// console.log(Number(undefined));
+// console.log(Number(NaN));
+// 0
+// 0
+// 0
+// 0
+// NaN
+// NaN

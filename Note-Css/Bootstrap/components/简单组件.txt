@@ -1,0 +1,138 @@
+﻿alert
+----div.alert.alert-success.alert-dismissable.fade.show
+	button.close[type="button" data-dismiss="alert"]{&times}
+	h4.alert-heading
+
+----behavior
+	$(".alert").alert("close") //手动删除alert
+----Events
+	close.bs.alert //删除alert前触发
+	closed.bs.alert //删除alert后触发
+-----------
+	$('#myAlert').on('closed.bs.alert', function () {
+  	// do something…
+	})
+-----------注意移除alert会将alert从DOM中移除，无法复原
+
+*************************************************************
+
+Badge
+-----被其他元素包裹的元素，用作徽章标记，气泡等样式功能
+-----button>span.badge.badge-pill.badge-secondary
+-----作用于a标签会有hover效果
+<a href="#" class="badge badge-primary">Primary</a>
+
+
+*************************************************************
+BreadCrumb面包屑导航
+
+-----ol.breadcrumb>li.breadcrumb-item.active>a
+注意：该导航的active在li上，但并不会覆盖a的默认样式，可修改源码
+.breadcrumb-item.active 为 .breadcrumb-item    .active
+
+*************************************************************
+Buttons
+-----button.btn.btn-success.btn-link.btn-lg.btn-sm.btn-block.active
+[disabled] 不可用状态 a标签用类.disabled
+
+-----behavior
+
+切换btn激活状态通过添加data-toggle="button",它主要是为button添加css类.focus和.active
+active使颜色阴暗，.focus添加外围阴影
+btn点击产生的外围阴影是通过选择器
+btn-color  :focus :active .focus  .active+box-shadow实现的
+checkbox,radio
+
+-----btn作用于checkbox,radio上时，需要给外围btn-group-toggle的元素添加data-toggle="buttons"
+以便为子元素的label标签自动添加.active.focus类，不论子标签多少个label
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+<label class="btn btn-secondary active">
+
+-----Event
+方法		描述
+$().button('toggle')	切换推送状态。为按钮提供已激活的外观。
+$().button('dispose')	销毁元素的按钮。
+
+按钮组
+.btn-toolbar>.btn-group.btn-group-vertical
+.btn-group-lg  .btn-group-sm
+嵌套下拉菜单时将下拉菜单包裹为.btn-group，并放入顶层.btn-group
+.btn-group
+	.btn-group
+		.btn.dropdown-toggle[data-toggle="dropdown"]
+		div.dropdown-menu>a.dropdown-item
+垂直按钮组——.btn-group-vertical(不能再其中使用拆分下拉菜单)
+
+*********************************************
+下拉菜单(适用于a&button)
+下拉菜单需要被包裹在.dropdown或者申明position:relative的父元素中，
+其中.btn-group已经申明了position:relative
+div.dropdown|position:relative
+	a.btn.btn-primary.dropdown-toggle[data-toggle="dropdown"]
+	div.dropdown-menu
+		a.dropdown-item 
+拆分按钮
+拆分按钮就是在.btn-group中紧邻一个button创建一个下拉菜单，
+比起一般的下拉菜单，不需要.dropdown，并且button|a需要添加dropdown-toggle-split类
+.dropdown-toggle-split自带三角下拉图形 : :after
+-----div.btn-group
+	button.btn.btn-success{Fitrst}
+	button.btn.btn-primary.dropdown-toggle.dropdown-toggle-split[data-toggle="dropdown"]
+	div.dropdown-menu
+		span.dropdown-item-text
+		div.dropdown-header
+		div.dropdown-divider
+		a.dropdown-item
+		button.dropdown-item.active.disabled
+方向——dropdown,dropup,dropleft,dropright
+菜单对齐——div.dropdown-menu.dropdown-menu-right
+
+菜单面板位置——button.btn[data-offset="x,y" || data-reference="parent"]
+-----Method
+方法	描述
+$().dropdown('toggle')	切换给定导航栏或选项卡式导航的下拉菜单。
+$().dropdown('update')	更新元素下拉列表的位置。
+$().dropdown('dispose')	销毁元素的下拉列表。
+-----活动
+所有下拉事件都在.dropdown-menu父元素处触发，并具有一个relatedTarget属性，其值为切换锚元素。 hide.bs.dropdown和hidden.bs.dropdown事件有一个clickEvent属性（仅当原始事件类型是click），其中包含click事件的事件对象。
+
+事件	描述
+show.bs.dropdown	调用show实例方法时会立即触发此事件。
+shown.bs.dropdown	当下拉列表对用户可见时将触发此事件（将等待CSS转换完成）​​。
+hide.bs.dropdown	调用hide实例方法时会立即触发此事件。
+hidden.bs.dropdown	下拉菜单已完成对用户隐藏时将触发此事件（将等待CSS转换完成）​​。
+
+
+-----------------------------------------
+pagination
+nav
+	ul.pagination[pagination-lg.pagination-sm].justify-content-*
+		li.page-item
+			a.page-link
+				[span{&laquo;&raquo;}]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

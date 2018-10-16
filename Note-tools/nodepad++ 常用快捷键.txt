@@ -1,0 +1,25 @@
+另存为 Ctrl+Alt+S
+
+恢复 Ctrl+Y
+
+转为大写 Ctrl+Shift+U
+转为小写 Ctrl+U
+
+复制当前行 Ctrl+D
+删除当前行 Ctrl+L
+分割行 Ctrl+I
+合并行 Ctrl+J
+上移当前行 Ctrl+Shift+Up
+下移当前行 Ctrl+Shift+Down
+
+添加/删除单行注释 Ctrl+Q
+设置行注释 Ctrl+K
+取消行注释 Ctrl+Shift+K
+区块注释 Ctrl+Shift+Q
+
+函数自动完成 Ctrl+Space
+
+折叠所有层次 Alt+0
+展开所有层次 Alt+Shift+0
+折叠当前层次 Ctrl+Alt+F
+展开当前层次 Ctrl+Alt+Shift+F

@@ -1,0 +1,78 @@
+nav 
+----------
+ul.nav
+	li.nav-item
+		a.nav-link.active.disabled
+nav.nav
+	a.nav-link.active.disabled
+
+.nav->flex->justify-content-*
+.nav.flex-*(sm)-column
+
+tabs
+	ul.nav.nav-tabs.nav-pills.nav-fill.nav-justified
+		li.nav-item[data-toggle="tab|pill" data=target="#tab1"]
+			a.nav-link.active.disabled
+	div.tab-content
+		div.tab-pane.fade.show#tab1
+
+注意：使用.nav-fill.nav-justifie 时，.nav-item必须有作用于a标签上
+
+通过JavaScript
+通过JavaScript启用tabbable选项卡（每个选项卡需要单独激活）：
+
+$('#myTab a').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+
+您可以通过多种方式激活各个标签：
+
+$('#myTab a[href="#profile"]').tab('show') // Select tab by name
+$('#myTab li:first-child a').tab('show') // Select first tab
+$('#myTab li:last-child a').tab('show') // Select last tab
+$('#myTab li:nth-child(3) a').tab('show') // Select third tab
+
+显示新选项卡时，事件按以下顺序触发：
+
+hide.bs.tab （在当前活动选项卡上）
+show.bs.tab （在待显示的标签上）
+hidden.bs.tab（在上一个活动选项卡上，与hide.bs.tab事件相同）
+shown.bs.tab（在新显示的刚刚显示的选项卡上，与show.bs.tab事件相同）
+
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  e.target // newly activated tab
+  e.relatedTarget // previous active tab
+})
+
+----------------
+
+navigation
+	nav.navbar-nav.[navbar-expand-*.navbar-drak.navbar-light.bg-*]
+		span.navbar-text
+
+		button.navbar-toggler[data-toggle="collapse" data-target="#panel"]
+			span.navbar-toggler-icon
+
+		a.navbar-brand
+			[img]
+
+		div.collapse.[navbar-collapse]#panel
+			div.navbar-nav
+				a.nav-item.nav-link
+
+			ul.navbar-nav
+				li.nav-item.active
+					a.nav-link.disabled
+				
+				li.nav-item.dropdown
+					a.nav-link.dropdown-toggle
+					div.dropdown-menu
+						a.dropdown-item
+						
+			form.form-inline
+				div.input-group
+					...
+				input[type="search"]
+				button[type="submit"]
+

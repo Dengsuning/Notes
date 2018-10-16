@@ -1,0 +1,68 @@
+/*
+罗马数字包含以下七种字符： I， V， X， L，C，D 和 M。
+
+字符          数值
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000
+
+特殊的规则只适用于以下六种情况：
+
+I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。
+X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。 
+C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
+
+示例 4:
+
+输入: 58
+输出: "LVIII"
+解释: C = 100, L = 50, XXX = 30, III = 3.
+示例 5:
+
+输入: 1994
+输出: "MCMXCIV"
+解释: M = 1000, CM = 900, XC = 90, IV = 4.
+
+*/
+
+var intToRoman = function(num) {
+    let romanNumber = {
+        specialNumber : [4,40,400,9,90,900],
+        mapSpecialNumber : ["IV","XL","CD","IX","XC","CM"],
+        commonNumber : [[1,5],[10,50],[100,500],[1000]],
+        mapCommonNumber : [["I","V"],["X","L"],["C","D"],["M"]]
+    }
+
+    let numStr = (num+"").split("")
+    let len = numStr.length
+    let result = ""
+
+    for (let i = 0; i < len; i++) {
+        let num = +numStr[i]
+        let figure = len - i -1;
+        let special = romanNumber.specialNumber.indexOf(num*Math.pow(10,figure));
+        if (special>-1) {result += romanNumber.mapSpecialNumber[special];continue;};
+
+        if(num == 5){
+            result += romanNumber.mapCommonNumber[figure][1];
+            continue;
+        }
+
+        let commanRoman = romanNumber.mapCommonNumber[figure][0]
+
+        if(num > 5){
+            result += romanNumber.mapCommonNumber[figure][1]
+            num = num - 5;
+        }
+
+        for(let j = 0; j < num; j++){
+                result += commanRoman
+        }
+    };
+   return result;
+
+};

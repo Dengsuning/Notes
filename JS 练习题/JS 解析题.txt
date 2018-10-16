@@ -1,0 +1,51 @@
+1. 关于this
+var x = 1
+var o = {
+    x : 2,
+    fn : function(){
+        console.log(x,this.x);
+    }
+}
+o.fn()  // 1,2
+var temp = o.fn
+temp()   // 1,1
+
+var x1 = 1
+var v = 's'
+var o1 = {
+    x1 : 2,
+    fn : function(){
+        return function(){
+            console.log(x,this.x);
+        }
+    }
+}
+o1.fn()()  //1,1
+var temp1 = o1.fn()
+temp1()  //1,1
+
+
+/*
+1. this指向的是调用该方法的对象
+2. 匿名函数执行时默认为全局环境，也就是window
+3. 对象属性需通过this.property调用
+4. 属性查找是依据作用域链，从顶端(当前局部作用域)，到末端(全局作用域)
+ */
+
+
+------------------------------------------------------------------------
+
+
+2.变量提升
+if (!('a' in window)) {
+    var a = "a"
+}else{
+    var b = 'b'
+}
+
+console.log(a || b);
+
+/*
+1. 'Math' in window 可以检测属性是否存在于对象中或其原型对象中
+2. 变量提升
+*/

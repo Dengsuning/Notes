@@ -1,0 +1,35 @@
+scrollSpy
+
+被监视滚动的元素需要设定relative，一般是body
+如果不是body,还需要设置它的高度height和overflow-y:scroll
+
+链接标签a必须有关联的href="id"
+body{
+    position:relative;
+}
+example
+   nav#monitor
+      ul>li
+	 a.href="#home".active
+	 a.href="content"
+
+    div [data-spy="scroll" data-target="#monitor" data-offset="50"]
+	 div#home
+	 div#content
+
+.active能根据滚动位置自动切换
+
+body添加relative后,通过JavaScript自动生成scrollSpy机制
+$("body").scrollspy({target:"#navbar-example"})
+
+删除DOM后，需要手动刷新scrollSpy
+$("[data-spy='scroll']").each(function(){
+	var $spy = $(this).scrollspy('refresh')
+})
+------------
+活动
+事件类型	描述
+activate.bs.scrollspy	只要新项目被scrollspy激活，此事件就会在scroll元素上触发。复制
+$('[data-spy="scroll"]').on('activate.bs.scrollspy', function () {
+  // do something…
+})

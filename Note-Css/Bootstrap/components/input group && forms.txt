@@ -1,0 +1,152 @@
+input group
+
+div.input-group[.input-group-sm|lg]
+	div.input-group-prepend
+		span.input-group-text * n
+			[input[type="checkbox|radio"]]    // 不能添加.form-control 因为该类设置了width:100%,而sapn。input-group-text是内联元素，默认宽度为0，CheckBox就不能显示
+	input.form-control[type="text"] * n
+	div.input-group-append
+		span.input-group-text
+
+span.input-group-text可以替换成各种组件
+例如:
+	button.btn.bg-secondary.bg-outline-secondary
+
+	button.btn.btn-outline-secondary.dropdown-toggle[type="button" data-toggle="dropdown"]
+	div.dropdown-menu
+		a.dropdown-item
+		a.dropdown-divider
+
+	split button
+	div.input-group-prepend
+		button.btn.btn-color
+		button.dropdown-toggle.dropdown-toggle-split[data-toggle="dropdown"]
+		div.dropdown-menu
+
+	Custom Select fileInput
+注意：都被.input-group包裹
+div.input-group
+	input <=>
+		select.custom-select
+			option[selected]{Choose file}
+			option[value="key"] * n
+
+		div.custom-file
+			input.custom-file-input#file[type="file"]
+			label.custom-file-label[for="file"]
+
+
+-----------------------------------------------------------------------
+
+Forms
+label is block element
+check or radio will be shown by vertival layout and have the default gap
+form-group 只针对一个input
+.form-text 显示帮助提示
+
+
+form[.form-inline]
+	div.form-group
+		lable[for="inputID"]
+		input[type="text"].form-control#inputID
+		[small.form-text.text-muted]{We will not never share your email}
+
+	div.form-group
+		div.form-check
+			input[type="checkbox"].form-check-input#checkID
+			label.form-check-label[for="checkID"]
+
+	div.form-group
+		label[for=""]
+		input[type="file"].form-control-file
+
+	button[type="submit"].btn.btn-primary
+
+Size:form-control-sm form-control-lg
+readonly —— DOM attribute
+
+只读纯文本——.form-control-plaintext
+	input.form-control-plaintext
+
+form.form-row
+div .form-group .form-check.form-check-inline
+label  [.form-check-label.col-form-label]
+input  .form-control .form-control-file| .form-check-input | form-control-range | .form-control-plaintext | form-control-size | position-static
+
+Check
+div.form-check[.form-check-inline]
+	input.form-check-input[.position-static][type="checkbox|radio"]
+	label.form-check-label[for=""]
+
+input[type="checkbox|radio"].position-static 设置无标签输入
+
+可以使用form.row|.form-row对.form-group进行网格布局.col-*-*
+
+要让label和input水平排列并垂直居中,对.form-group添加.row，label添加.col-form-label,支持变换大小
+	div.form-group.row
+		label.col-md-3.col-form-label[.col-form-label-sm|lg]
+		input.col-md-9
+
+调整大小
+form|div.form-row
+	div.col-auto.col-sm-6
+	div.col-auto.col-sm-6
+
+Custom controls
+设置自定义控件水平显示（默认垂直显示），在custom-control添加.custom-control-inline
+	select.custom-select.custom-select-sm|lg
+
+	div.custom-control[.custom-checkbox]
+		input.custom-control-input[type="checkbox"]
+		label.custom-control-label
+
+	div.custom-control[.custom-file]
+		input.custom-file-input
+		label.custom-file-label
+
+	div.custom-control[.custom-radio]
+		input.custom-control-input[type="radio"]
+
+	label[for=""]
+	input.custom-range
+
+
+使用custom 输入时，要配合custom-control-label，custom默认隐藏了所有原生控件，通过label的伪元素：after实现样式
+
+*****************************************
+Validity
+组织浏览器默认表单验证行为——form[novalidate]
+
+form[noalidate]
+	div
+		label
+		input[.is-valid.is-invalid]
+		div.valid-feedback.invalid-feedback[.valid-tooltip~~]
+		
+.valid-tooltip.invalid-tooltip 确保有一个父级position: relative用于工具提示定位
+
+js-
+(function(){
+	window.addEventListener("load",function(){
+	'use strict'
+	//找到所有需要进行bootstrap验证的表单
+	var forms = document.querySelectorAll(".nees-validation");
+	//循环绑定每个form的submit事件
+	var validation = Array.prototype.filter.call(forms,function(form){
+			form.addEventListener('submit',function(event){
+				if(form.checkValidity（） === false){
+					event.preventDefault();
+					event.stopPropagation();
+				}
+				form.classList.add("was-validated")
+			},false)
+		})
+	},false)
+})()
+
+
+
+
+
+
+

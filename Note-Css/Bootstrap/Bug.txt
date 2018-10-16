@@ -1,0 +1,14 @@
+面包屑导航 中的active本来应该放在li.breadcrumb.active上
+但是这样不能覆盖li>a的颜色，所以应该先将CSS
+.breadcrumb-item .active {
+  color: #6c757d ;
+}
+修改为
+.breadcrumb-item   .active {
+  color: #6c757d !important;
+}
+
+not bug
+ 交换控件位置有意想不到的效果
+例如,navbar中交换a.navbar-brand和button.navbar-toggler能让toggle按钮在左边显示
+让div.collapse放在button.data-toggle="collapse"上面能从下向上出现

@@ -1,0 +1,17 @@
+/*
+从后到前，随机选择一个元素和该元素位置交换，例如【1，2，3，4，5】
+第一次：获取随机索引2 ，arr[2] 和 arr[5]交换 >>> 【1，5，3，4，2】
+第二次：获获取随机索引1,arr[1] 和 arr[4]交换 >>> 【4，5，3，1，2】
+......
+ */
+function shuffle(arr){
+    var len = arr.length
+    for(let i = 0;i<len-1;i++){
+        //每次获取前i个元素的随机索引
+        var index = Math.floor(Math.random()*(len-i))
+        //将取得的随机元素和第i+1个元素交换
+        arr[index] =[arr[len-i-1],arr[len-i-1]=arr[index]][0]
+    }
+    return arr
+}
+console.log(shuffle([1,2,3,4,5,6]));

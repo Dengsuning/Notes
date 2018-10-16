@@ -1,0 +1,7 @@
+function Capital(str){
+    str = str.toLowerCase()
+    return str.split(" ").map(function(item,index){
+        return item.charAt(0).toUpperCase() + item.substring(1)
+    }).join(" ")
+}
+console.log(Capital("hello World my FrienD"));

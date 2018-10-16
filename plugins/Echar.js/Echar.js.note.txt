@@ -1,0 +1,102 @@
+1. 为ECharts准备一个具备大小（宽高）的Dom 
+    <div id="main" style="width:600px;"height:400px;></div>
+
+2. JavaScript 
+// 基于准备好的dom，初始化echarts实例
+   var myCahr = echarts.init(document.querySelector("#mian"));
+
+// 指定图表的配置项和数据
+   var option = {
+	title:{
+	},
+	tooltip:{},
+	legend:{
+	   data:"销量"
+	},
+	xAxis:{
+            data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+},
+        yAxis: {},
+        series: [{
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        }]
+}
+
+// 使用刚指定的配置项和数据显示图表。
+myChar.setOption(option);
+
+title:左上角大标题
+tooltip
+legned:顶部居中标题-Y坐标描述
+xAxis ：x坐标数据描述数组
+yAxis : y坐标范围描述，为空时自动生成数值范围。
+series: 每一个x描述属性的hover面板内容，包含具体每一项的数值
+ series ： type >>>
+	bar : 直方图
+
+
+	pie : 饼状图
+
+		series: {
+                type: 'pie',
+                data: [
+                    {name: 'A', value: 1212},
+                    {name: 'B', value: 2323},
+                    {name: 'C', value: 1919}
+                ]
+            }
+	
+	line : 折线图
+option = {
+
+          // Make gradient line here
+          visualMap: [{
+              show: false,
+              type: 'continuous',
+              seriesIndex: 0,
+              min: 0,
+              max: 400
+          }, {
+              show: false,
+              type: 'continuous',
+              seriesIndex: 1,
+              dimension: 0,
+              min: 0,
+              max: dateList.length - 1
+          }],
+          option = {
+       title: {text: 'Line Chart'},
+          
+      tooltip: {},
+          
+      toolbox: {
+              
+      feature: {
+                  
+        dataView: {},
+                  
+        saveAsImage: {
+                      
+          pixelRatio: 2
+                  },
+                  
+        restore: {}
+              }
+          },
+          
+      xAxis: {},
+          yAxis: {},
+          
+      series: [{
+              
+        type: 'line',
+              
+        smooth: true,
+              
+        data: [[12, 5], [24, 20], [36, 36], [48, 10], [60, 10], [72, 20]]
+
+          }]
+      };
+        

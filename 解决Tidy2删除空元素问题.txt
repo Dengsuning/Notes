@@ -1,0 +1,9 @@
+tidy2 for nodepad++ gives tacit consent to drop the emty elements.
+
+you can find the config file of tidy2 to change it.
+
+direction:
+	
+	find tidy2 plugin in the plugin menu and click the button named edit config1 .
+and you will see the cinfig file ,then you have to append a sentence ¡ª¡ªdrop-empty-elements: no
+

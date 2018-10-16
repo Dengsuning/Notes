@@ -1,0 +1,360 @@
+注释：  
+	\\  \***\
+弱语言类型
+
+输出
+	使用 window.alert() 弹出警告框。
+	使用 document.write() 方法将内容写到 HTML 文档中。
+	使用 innerHTML 写入到 HTML 元素。
+	使用 console.log() 写入到浏览器的控制台。
+
+数据类型
+	Number Boolean  String Array Object null undefined
+
+	string和数组相同 ，可索引
+	typeof()>>>Array null object ->  Object
+	instanceof 用于判断一个变量是否某个对象的实例
+	obj.constructor.toString().indexOf("Data") > -1 判断数据类型
+
+
+
+申明变量——var v = 1 ；
+未添加var关键字 默认生成 全局变量
+
+字符串——单双引号均可，无差别
+
+
+类型转换
+	Number（）
+	parseInt（）
+	ParseFloat（）
+	String（）
+	v.toString()
+	BooLean（）
+	-"123">>>132 string——>number
+	123+"" number->string
+
+数组声明
+var arr = new Array(option,[option1])
+arr[1] = xxx
+var arr = [option1,option2]
+
+JavaScript有关联数组
+但是不能使用字面量来初始化
+需要arr["key"] = value 的方式创建
+且只能用指定的key调用，下标索引无效
+
+
+对象声明
+var obj = new Object()
+var obj = {"key":"value"}
+
+
+异常
+try{
+	throw "msg"
+}catch(e){
+	 	e.message|name|stack
+}finally{
+	
+}
+错误类型
+（1）SyntaxError
+SyntaxError是解析代码时发生的语法错误。
+
+（2）ReferenceError
+ReferenceError是引用一个不存在的变量时发生的错误。
+
+3）RangeError
+RangeError是当一个值超出有效范围时发生的错误。主要有几种情况，一是数组长度为负数，二是Number对象的方法参数超出范围，以及函数堆栈超过最大值。
+
+（4）TypeError
+TypeError是变量或参数不是预期类型时发生的错误。比如，对字符串、布尔值、数值等原始类型的值使用new命令，就会抛出这种错误，因为new命令的参数应该是一个构造函数。
+
+（5）URIError
+URIError是URI相关函数的参数不正确时抛出的错误，主要涉及encodeURI()、decodeURI()、encodeURIComponent()、decodeURIComponent()、escape()和unescape()这六个函
+
+（6）EvalError
+eval函数没有被正确执行时，会抛出EvalError错误。该错误类型已经不再在ES5中出现了，只是为了保证与以前代码兼容，才继续保留。
+
+自定义错误
+除了JavaScript内建的7种错误对象，还可以定义自己的错误对象。
+
+function UserError(message) {
+   this.message = message || "默认信息";
+   this.name = "UserError";
+}
+
+UserError.prototype = new Error();
+UserError.prototype.constructor = UserError;
+
+
+循环
+do{}while 
+while（）{}
+for（；；）{}
+for（x in list）{}
+
+注意：for in 遍历数组 其中的i 表示数组的下标(string),不迭代数组的值
+eg:
+var arr = [2,3,4,5]
+for(i in arr){
+	console.log(i)
+}
+>>>
+0,1,2,3
+
+
+javascript 语句
+
+break	
+catch	
+continue	
+do ... while	
+for	
+for ... in	
+function	
+if ... else	
+return
+switch	
+throw	
+try	
+var	
+while
+
+
+作用域
+作用域是可访问变量的集合
+局部作用域  全局作用域
+局部：函数的作用域
+全局 在函数外申明 或 未使用 var 申明的变量
+
+变量提升
+
+函数
+函数提升
+函数参数
+JavaScript不在意参数个数，只有位置参数，必须一一对应，
+有缺省参数
+所有参数保存到arguments数组中，通过下标索引
+
+函数this关键字：始终指向调用函数的作用域的拥有者
+构造函数中 this 关键字没有任何的值。
+this 的值在函数调用时实例化对象(new object)时创建。
+
+
+闭包
+闭包就是能够读取其他函数内部变量的函数
+闭包可以用在许多地方。它的最大用处有两个，一个是前面提到的可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。
+
+
+
+
+数组方法
+arr.xxx
+join()
+push()和pop()
+shift() 和 unshift()
+sort()
+reverse()
+concat()
+slice()
+splice()
+indexOf()和 lastIndexOf() （ES5新增）
+forEach() （ES5新增）
+map() （ES5新增）
+filter() （ES5新增）
+every() （ES5新增）
+some() （ES5新增）
+reduce()和 reduceRight() （ES5新增）
+
+字符串方法
+str.xxx
+charAt()	返回指定索引位置的字符
+charCodeAt()	返回指定索引位置字符的 Unicode 值
+concat()	连接两个或多个字符串，返回连接后的字符串
+fromCharCode()	将字符转换为 Unicode 值
+indexOf()	返回字符串中检索指定字符第一次出现的位置
+lastIndexOf()	返回字符串中检索指定字符最后一次出现的位置
+localeCompare()	用本地特定的顺序来比较两个字符串
+match()	找到一个或多个正则表达式的匹配
+replace()	替换与正则表达式匹配的子串
+search()	检索与正则表达式相匹配的值
+slice()	提取字符串的片断，并在新的字符串中返回被提取的部分
+split()	把字符串分割为子字符串数组
+substr()	从起始索引号提取字符串中指定数目的字符
+substring()	提取字符串中两个指定的索引号之间的字符
+toLocaleLowerCase()	根据主机的语言环境把字符串转换为小写，只有几种语言（如土耳其语）具有地方特有的大小写映射
+toLocaleUpperCase()	根据主机的语言环境把字符串转换为大写，只有几种语言（如土耳其语）具有地方特有的大小写映射
+toLowerCase()	把字符串转换为小写
+toString()	返回字符串对象值
+toUpperCase()	把字符串转换为大写
+trim()	移除字符串首尾空白
+valueOf()	返回某个字符串对象的原始值
+
+
+Number方法
+
+Number 对象属性
+number.xxx
+属性	描述
+constructor	返回对创建此对象的 Number 函数的引用。
+MAX_VALUE	可表示的最大的数。
+MIN_VALUE	可表示的最小的数。
+NEGATIVE_INFINITY	负无穷大，溢出时返回该值。
+NaN	非数字值。
+POSITIVE_INFINITY	正无穷大，溢出时返回该值。
+prototype	允许您有能力向对象添加属性和方法。
+
+toExponential(x)	把对象的值转换为指数计数法。
+toFixed(x)	把数字转换为字符串，结果的小数点后有指定位数的数字。
+toPrecision(x)	把数字格式化为指定的长度。
+toString()	把数字转换为字符串，使用指定的基数。
+valueOf()	返回一个 Number 对象的基本数字值。
+
+
+
+Date方法
+
+方法	描述
+getDate()	从 Date 对象返回一个月中的某一天 (1 ~ 31)。
+getDay()	从 Date 对象返回一周中的某一天 (0 ~ 6)。
+getFullYear()	从 Date 对象以四位数字返回年份。
+getHours()	返回 Date 对象的小时 (0 ~ 23)。
+getMilliseconds()	返回 Date 对象的毫秒(0 ~ 999)。
+getMinutes()	返回 Date 对象的分钟 (0 ~ 59)。
+getMonth()	从 Date 对象返回月份 (0 ~ 11)。
+getSeconds()	返回 Date 对象的秒数 (0 ~ 59)。
+getTime()	返回 1970 年 1 月 1 日至今的毫秒数。
+
+document对象
+document对象主要有如下属性：
+
+属性	说明
+document.title	设置文档标题等价于HTML的<title>标签
+document.bgColor	设置页面背景色
+document.linkColor	未点击过的链接颜色
+document.alinkColor	激活链接(焦点在此链接上)的颜色
+document.fgColor	设置前景色(文本颜色)
+document.vlinkColor	已点击过的链接颜色
+document.URL	设置URL属性从而在同一窗口打开另一网页
+document.fileCreatedDate	文件建立日期，只读属性
+document.fileModifiedDate	文件修改日期，只读属性
+document.fileSize	文件大小，只读属性
+document.cookie	设置和读出cookie
+document.charset	设置字符集 简体中文:gb2312
+
+
+指向其他节点或对象的属性
+document.doctype // <!DOCTYPE html>
+document.documentElement //返回文档的根节点 <html>...</html>
+document.head // <head>...</head>
+document.body // <body>...</body>
+document.defaultView // window
+
+
+指向特定元素集合的属性
+document.all ：文档中所有的元素，Firefox不支持该属性。
+document.forms ：所有的form元素。
+document.images：所有的img元素。
+document.links：所有的a元素。
+document.scripts：所有的script元素。
+document.styleSheets：所有的link或者style元素。
+
+
+
+JSON
+JSON.parse()	用于将一个 JSON 字符串转换为 JavaScript 对象。
+JSON.stringify()	用于将 JavaScript 值转换为 JSON 字符串。
+
+代码规范
+变量和函数为驼峰法（ camelCase）
+全局变量为大写 (UPPERCASE )
+常量 (如 PI) 为大写 (UPPERCASE )
+通常运算符 ( = + - * / ) 前后需要添加空格:
+通常使用 4 个空格符号来缩进代码块：
+将左花括号放在第一行的结尾
+左花括号前添加一空格
+为了便于阅读每行字符建议小于数 80 个
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BOM头
+字节顺序标记(ByteOrderMark)，出现在文本文件头部，Unicode编码标准中用于标识文件是采用哪种格式的编码。
+网页中并不需要BOM指定编码方式，生成CSV文件可添加BOM头解决中文乱码
+
+csvString  = "\uFEFF" + csvString
+
+a标签 生成CSV下载链接
+a.href = 'data:attachment/csv,' + encodeURI(csvString); 
+a.target = '_blank'; 
+a.download = 'sucaihuo.csv';
+
+
+
+
+
+
+js教程
+https://www.w3cschool.cn/javascript/js-void.html
+
+js百科大全
+https://www.w3cschool.cn/xqw2e7/by4m12xr.html
+
+js标准参考教程
+https://www.w3cschool.cn/javascript_guide/javascript_guide-xb63268n.html
+
+深入理解JavaScript
+https://www.w3cschool.cn/deep_learn_javascript/deep_learn_javascript-n8262853.html
+
+轻松学习javascript
+https://www.w3cschool.cn/wkjavascript/5ze41o92.html
+
+前端手册大全
+http://www.cnblogs.com/simonryan/p/4835293.html

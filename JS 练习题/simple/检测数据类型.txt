@@ -1,0 +1,14 @@
+/*
+检测变量类型
+ */
+
+function judgeType(value){
+    let type = typeof(value)
+    if (type!='object') {return type}
+    if (value instanceof Array) {return "array"}
+    if (value instanceof Object) {return Object.prototype.toString.call(value)}
+
+    return "null"
+}
+
+console.log(judgeType(new Date()));

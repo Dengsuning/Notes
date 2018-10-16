@@ -1,0 +1,245 @@
+1   a:hover 必须被置于 a:link 和 a:visited 之后，才是有效的。
+
+提示：在 CSS 定义中，a:active 必须被置于 a:hover 之后，才是有效的。
+
+1.当按百分比设定一个元素的宽度时，它是相对于父容器的宽度计算的，
+但是，对于一些表示竖向距离的属性，
+例如 padding-top , padding-bottom , margin-top , margin-bottom 等，
+当按百分比设定它们时，依据的也是父容器的宽度，而不是高度。
+
+
+1.sort((a,b)=>{return a.length - b.length})
+
+
+1. Object.crate() 和 new
+Inew 操作符。以这种方式调用构造函数实际上会经历以下 4
+个步骤：
+(1) 创建一个新对象；
+(2) 将构造函数的作用域赋给新对象（因此 this 就指向了这个新对象） ；
+(3) 执行构造函数中的代码（为这个新对象添加属性） ；
+(4) 返回新对象。
+过程：
+var obj  = {};(1)
+obj.__proto__ = Base.prototype;(3)
+Base.call(obj);(2,3,4)
+
+
+Object.create()
+实现：
+Object.create =  function (o) {
+    
+var F = function () {};
+    
+F.prototype = o;
+    
+return new F()
+
+};
+
+和new不同的是，F.__proto__指向的是传入的对象，而非其原型，想要指向原型，手动传入原型即可（寄生组合继承）
+Object.create()直接传入实例，导致__proto__指向构造函数或者实例本身而非原型，
+造成原型链断裂，不能根据原型链自动查找，可显示列出prototype原型
+
+var Base = function () {  }
+Base.prototype.a = 3;
+
+var o = Object.create(Base)
+
+o.__proto__ == Base 
+o.prototype == o.__proto__.prototype == Base.prototype
+log(o.a) == undefined o>>>o.__proto__ => Base(构造函数 no __proto__) => Base.a ==undefined
+o.prototype.a = 3  o>>>o.__proto__.prototype => Base.prototype>>>Base.prototype.a == 3
+---------------------
+
+
+
+1.原型对象
+每次调用原型对象base.prototype.property = xxx 非常繁琐
+通过对象字面量创建原型对象：
+Base.prototype = {
+	name:"tom",
+	age:21
+}
+缺点：
+	断开了与原来原型对象的联系，导致原型对象（1）constructor不存在
+解决：base.prototype.constructor = Base  或 Base.prototype = {constructor:Base,...}
+
+	通过对象直接定义的属性,他的数据属性configable,enumerable,writeable默认为true
+	而constructor原来是不可枚举的，所以要修改它的enumerable属性，Object.defineProperty(obj,property,configObj)
+	Object.defineProperty(Base.prototype, "constructor", {
+    enumerable: false,//可不写，因为调用该方法建造的属性，数据属性默认为false
+    value: Person
+});
+
+
+
+1. 'Math' in window 检查属性是否存在对象中（包括对象的原型对象）
+
+
+1..functionName.length
+function.length 表示的是期望的函数对象参数数量，
+function method(arg1,arg2){}
+method.length // 2
+乍一看相当于arguments.length。其实不然，functionname.length还有特殊情况
+1. 不包括剩余参数 rest parameter
+console.log((function(...args) {}).length); 
+// 0, rest parameter is not counted
+
+2.只统计第一个具有默认值参数，之前的参数
+console.log((function(a, b = 1, c) {}).length);
+// 1, only parameters before the first one with 
+// a default value is counted
+
+3. functin 的构造函数 .length值为1 且该值不可修改，不可遍历，不可写
+
+4.function的原型对象的length属性为0
+
+
+1. Math.max()方法，支持传递多个参数，比如：Math.max(1,4,2,3,7,5,6)
+ 
+但是它不支持直接传递一个数组作为参数，比如：Math.max(new Array(1,4,2,3,7,5,6))。
+ 
+这里，只要我们有方法把数组，一个一个拆分开来，传递到Math.max()方法中，就实现了传递数组的方法。
+ 
+所有函数都有apply(作用域链,参数)这个方法，这个函数的“参数”，接收一个数组，并且是将数组中的每个值，分开来，传递给调
+
+
+
+1. PHPStudy 添加域名的时候需要手动修改系统host文件，C://windows/system32/etc/driver/host
+末尾添加  127.0.0.1   coding.com完成映射，否则浏览器将直接在网络中查找域名地址
+
+1.Javascript不能直接用==或者===来判断两个数组是否相等，无论是相等还是全等都不行
+要判断JS中的两个数组是否相同，需要先将数组转换为字符串，再作比较。
+
+1.Boolean(0)=false ,Boolean("0") = true
+2.console.log(Boolean(false));
+console.log(Boolean(null));
+console.log(Boolean(0));
+console.log(Boolean(""));
+console.log(Boolean(undefined));
+console.log(Boolean(NaN));
+//false * 6
+
+console.log(Number(false)); // 0
+console.log(Number(null)); // 0
+console.log(Number(0)); // 0
+console.log(Number(""));  // 0
+console.log(Number(undefined)); // NaN
+console.log(Number(NaN));  // NaN
+
+
+
+
+1.sort()函数在对数字进行排序时，默认是用ASCLL进行排序，对字母有效，数字无效，需手动写出排序回调函数
+2.Array.prototype.sort 随机算法的错误
+Array.prototype.sort(function(){return Math.random()-0.5})
+ chrome 浏览器中测试一下，可以得出结果，发现结果并不随机分布，各个位置的平均值越往后越大，这意味着这种随机算法越大的数字出现在越后面的概率越大
+ 原因：和Sort内置排序算法相关
+
+
+1.对象进行赋值操作，因为时引用赋值，需要用Objec.assign()方法
+	var newObj = Object.assign({},clonedObj)
+
+
+
+1.canvas 必须手动设置canvas的DOM对象的width和height属性，否则坐标系会变形，无法正常呈现画面
+如<canvas width="600" height="600"></canvas> 
+JS document.querySelector("canvas").width = 600
+
+注意：style标签 ，style.width 与 style.height 均不行
+
+
+
+
+1.为了避免setinterval第一次不执行（延迟）,调用setInterval()前需调用一次原函数
+2.循环添加setInterval和cleanInterval时（暂停和开始），避免两次调用开始（setInterval）,需在setInterval内部每次都cleanInterval（id）
+startBtn.onclick = function(){
+    clearInterval(ID)  //避免循环叠加
+    sortToImg()   // 避免延迟
+    ID = setInterval(function(){sortToImg()},3000)
+}
+endBtn.onclick = function(){
+    clearInterval(ID)
+}
+3.setInterval即使用了clearnInterval也不会马上结束，而是运行到本次最后才结束
+
+
+
+
+1. this指向的是调用该方法的对象
+2. 匿名函数执行时默认为全局环境，也就是window
+3. 对象属性需通过this.property调用
+4. 属性查找是依据作用域链，从顶端(当前局部作用域)，到末端(全局作用域)
+
+1.getComputedStyle(obj)?getComputedStyle(obj)[attr]:obj.currentStyle[attr];}
+2.获取CSS属性值不等于获取DOM元素Style对象属性，CSS属性值有初始默认值，例如margin-bottom默认为auto，而style.marginBottom为空，
+3.style的值可以用关联数组方式取得：style['margin-top'] == style.matginTop
+
+
+1.offset家族
+	offsetParent：获取最近的带有定位的父级元素
+
+获取元素本身的宽度,高度——width(height)+padding+border
+	offsetWidth
+	offsetHeight
+
+返回距离上级盒子（最近的带有定位）左边的位置
+	offsetLeft——从父级的padding 开始算 父亲的border 不算
+	offsetTop
+
+2.事件对象
+	存在于事件对象中的event
+event.data——返回拖拽对象的URL字符串(drapDrop)
+event.width——该窗口或框架的宽度
+event.height——该窗口或框架的高度
+event.pageX——光标相对于文档的水平位置（非IE）
+event.pageY——光标相对于文档的垂直位置（非IE）
+event.screenX——光标相对于电脑屏幕的水平位置（非IE）
+event.screenY——光标相对于电脑屏幕的垂直位置（非IE）
+event.target——该事件发生的对象
+event.type——事件类型
+event.clientX——光标相对于网页的水平位置（当前可见区域）
+event.clientY——光标相对于网页的垂直位置（当前可见区域）
+
+1. window.getSelection()返回Selection对象
+W3C——Selection对象
+IE——textRange对象 IE8及以下
+
+window.getSelection()||document.selection.createRange()
+
+Selection对象实例属性
+	anchorNode
+属性
+anchorNode
+返回包含“起点”的节点。
+anchorOffset
+“起点”在anchorNode中的偏移量。
+focusNode
+返回包含“结束点”的节点。
+focusOffset
+“结束点”在focusNode中的偏移量。
+isCollapsed
+“起点”和“结束点”是否重合。
+rangeCount
+返回selection中包含的range对象的数目，一般存在一个range，Ctrl健配合使用可以有多个。
+
+方法
+getRangeAt(index) 获取selection中range对象，按索引获取，一般只有一个
+
+
+anchor Node 和 focusNode 
+	拥有属性：length(节点文字个数)
+		  nextSibling，previousSibling
+		  parentNode
+Range对象
+ commonAncestorContainer
+返回包含 startContainer（anchorNode） 和 endContainer（focusNode） 的最深的节点，这个属性是只读的，如需要操作它，请重新设置range的开始位置和结束位置。
+也就是他们共同的父节点
+	setStart(node,offset)
+	setEnd(node,offset)
+node:光标所需要设置的目的节点
+offset:节点内的偏移量
+surroundContents(document.createElement("span"))
+将指定节点包裹所选取的片段
+
+

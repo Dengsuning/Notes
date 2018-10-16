@@ -1,0 +1,41 @@
+createdAt: "2018-10-14T14:20:01.203Z"
+updatedAt: "2018-10-14T14:48:12.327Z"
+type: "MARKDOWN_NOTE"
+folder: "8d6b84b60f544a94df63"
+title: "前言"
+content: '''
+  # 前言
+  文章主要作为笔者的学习笔记，一切内容以笔者的书写习惯进行，例如为了简化笔记内容，笔者根据Emmet（前身为Zen Coding，一种通过类似CSS选择器的语法，加速网页编写速度，并得到各种编辑器都有良好支持的插件）的语法加上自己的习惯和理解，运用通俗易懂又简洁（我认为的，滑稽）的方式快速记录代码片段，例如，
+  ``````html
+  <ul calss="nav">
+  	<li></li>
+  	<li></li>
+  </ul>
+  ``````
+  会写成以下方式
+  ```javascript
+  //Emmet的方式
+  ul>.nav>li*2
+  //我的方式，缩进和换行
+  ul.nav
+  	li*2
+  ```
+  当然还有其他的记录方式会在后面用到的时候进行解释。
+  
+  
+  # Alert 
+  > Alert是一个非常简单的组件，主要用于提示，相当于美化后的alert()警示框.所以也不会经常用到。
+  
+  注: 笔记中[ ]代表两种含义
+  1. 代表可选的class =名，例如`[.alert-dismissable]`中.dismissable就是一个可选的类，因为alert组件功能不一，只有在需要能启用关闭功能时才需要该类。
+  2. 属性(attribute)，例如`input[type="password"]` 相当于`<input type="password" />`
+  
+  `````javascript
+  div.alert  [ .alert-success.alert-dismissable.fade.show]
+  		button[type="button" data-dismiss="alert"].close{&times;}
+  		h4.alert-heading
+  ``````
+'''
+tags: []
+isStarred: false
+isTrashed: false

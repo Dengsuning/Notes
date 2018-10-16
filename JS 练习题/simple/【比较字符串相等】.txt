@@ -1,0 +1,11 @@
+function mutation(arr) {
+  var astr=arr[0].toLowerCase();
+  var bstr=arr[1].toLowerCase();
+  console.log(astr == bstr);
+}
+function mutation1(arr) {
+  console.log(arr[0].toLowerCase().localeCompare(arr[1].toLowerCase()) != 0 ? false : true )
+
+}
+
+mutation1(["hello", "Hello"]);

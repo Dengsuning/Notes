@@ -1,0 +1,37 @@
+1.Í¼Æ¬ÐüÍ£Ô¤ÀÀ£¨·ÂÌÔ±¦£©
+
+HTML£º
+<li>
+	<a href="../images/QQ.jpg"  class="toolTip" title="picture1">
+	<img src="../images/QQ.jpg" alt="picture1">
+	</a>
+</li>
+
+jQuery£º
+$(function(){
+		var x =10;
+		var y =20;
+
+		$('a.toolTip').mouseover(function(e){
+			this.myTitle = this.title;
+			this.title='';
+			var imgTitle = '<div id="toolTip"><img src="'+this.href+'" alt="'+this.myTitle+'" /></div>'
+			$('body').append(imgTitle);
+			$('#toolTip').css({
+				'position':'absolute',
+				'top':(e.pageY+y)+'px',
+				'left':(e.pageX+x)+'px',
+				'display':'inline'
+			}).show('fast');
+		}).mouseout(function (e) {
+			this.title = this.myTitle;
+			$('#toolTip').remove();
+		}).mousemove(function(e){
+			$('#toolTip').css({
+				'position':'absolute',
+				'top':(e.pageY+y)+'px',
+				'left':(e.pageX+x)+'px',
+				'display':'inline'
+			})
+		});
+	})

@@ -1,0 +1,15 @@
+// 给定一个字符串，请将字符串里的字符按照出现的频率降序排列。
+var frequencySort = function(s) {
+    var arr = [...s].sort()
+    var unique = [...new Set(arr)]
+    var result = []
+    unique.forEach(function(item,index){
+        var num = arr.lastIndexOf(item)-arr.indexOf(item)+1
+        for(let i = 1;i<num; i++){item += item}
+        result.push(item)
+    })
+
+   return result.sort((a,b)=>{return b.length - a.length});
+
+};
+frequencySort("abAb")

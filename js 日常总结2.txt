@@ -1,0 +1,157 @@
+1. n >> m 当m小于parseInt(log2(n))时，等于 n / 2^ m
+直到m == 32*n 也就是32的倍数时，开始循环
+64>>32 // 64  64>>33 //32
+
+n << m  相当于 n * Math.pow(2,m) 
+9 <<1 = 18
+
+~n == -(n+1)
+~~n == parseInt(n) //取整
+
+
+
+1. a download 同源情况下，能下载图片，没有限制，
+非同源的情况下不能
+
+下载图片的其他方式还有将img绘制到canvas中，将canvas保存为png（同源）
+var link = document.createElement('a');
+link.innerHTML = 'download image';
+
+link.addEventListener('click', function(ev) {
+    link.href = canvas.toDataURL();
+    link.download = "mypainting.png";
+}, false);
+
+document.body.appendChild(link);
+
+
+
+PHP支持
+网上搜索得知：浏览器会通过头信息进行判断，一旦没有找到头信息浏览器则根据自己的既定规则进行解析。如果浏览器能识别该文件，则会以相应的方式显示该文件；如果浏览器不能识别该文件，则会弹出下载保存窗口供用户进行下载保存。
+
+为了达到浏览器兼容的目的，结合网站后台使用的语言，最终决定借助PHP实现，代码如下：
+
+<?php
+    $file = $_GET['file'];
+    header('Content-type: octet/stream');
+    header('Content-disposition: attachment; filename='.$file.';');
+    header('Content-Length: '.filesize($file));
+    readfile($file);
+    exit;
+ ?>
+
+将上面这段代码粘贴到新建的PHP文件中保存并命名为download.php以供HTML页面使用。然后，我们就可以在HTML代码中调用这个PHP文件实现点击a链接下载图片的操作了。
+
+HTML代码如下：
+
+<a href="download.php?file=demo.jpg">点击下载</a>
+
+1.postMessage
+
+parent
+    iframe src="http://seng.com/sub.html" id="sub"
+    //获取iframe 
+    window.frames[0]  == document.querySlector("#"sub).contentWindow
+    window.onmessage=(e)={e.data,e.origin,e.source}
+    sub.postMessage(data,subDomain)
+
+sub
+    window.onmessage=(e)={
+e.data, //parent 传输的数据
+e.origin, // parent 的域名
+e.source  //parent window对象的引用
+e.source.postMessage(data,parentDomain);
+}
+
+
+2. $.getJSON $.get $ post $.ajax 默认都是异步执行的，如果将其放在一个额外部函数中，
+并返回接收到的值，需要考虑将ajax 方法变为同步的，
+function(){
+	var result = []
+	$getJSON(do something for result !!!)
+	return result 
+	// result 为空，因为$.getJOSN是异步的，在return之后执行
+}
+解决办法，手动设置为同步
+       $.ajax({
+        url:"asset/data.json",
+        async:false,
+	data:{key:value}
+	type:"POST",
+        dataType:'json',
+        success:function(data){
+          $.each(data,function(e,v){
+            r.push(v)
+          }),
+	error:function(e){}
+        }
+
+
+1.document.onreadystatechange 页面加载状态改变时的事件
+
+
+document.readystate 返回页面当前文档的状态
+
+有四种状态：
+
+
+uninitialized - 还未开始载入
+
+loading - 载入中
+
+interactive - 已载入，
+文档与用户开始交互
+
+complete - 载入完成
+
+
+
+根据这四个状态我们可以通过载入完成后隐藏进度条，而显示内容。
+
+
+1. ele.dispatchEvent(new Event(name))
+dispatchEvent作用于元素本身，并且不会触发控件的原生事件，只会触发用户自定义的事件
+例如：file input 用dispatchEvent不会发生任何反应
+JQuery 的click trigger 是在对象内部模拟了冒泡序列，用冒泡的方法触发了浏览器原生事件.
+
+
+1. 
+Object
+Obj.toString() >>> [object Object]
+
+Array
+   [1,[2,3,4]].toString() >>> 1,2,3,4（不论多少维度，全部flat展开）
+
+String
+   "hello".toString()  >>>  
+"hello"
+
+Boolean
+    true.toString()  >>>  
+"true"
+
+NaN
+    NaN.toString()
+"NaN"
+
+Number
+    8.toString()
+VM311:8 Uncaught SyntaxError: Invalid or unexpected token
+    【new Number(8).toString() >>> 8】
+
+undefined null 没有toString()，使用时报错
+
+拓展------------------
+valueOf
+Object,Array,String,Boolean,NaN都会返回本身
+数字，null,undefined报错
+
+判断对象,数组相等：
+	JSON.stringfyi(obj1) === JSON.stringfyi(obj2)
+	JSON.stringfyi(arr1) === JSON.stringfyi(arr2)
+判断相同维度的数组
+	[1,[2,3]].toString() == [1,2,3].toString()
+
+
+[object Object]
+表示对象的类型是object，这个对象的constructor是Object

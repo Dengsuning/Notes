@@ -1,0 +1,41 @@
+//JS实现
+window.onload = function(){
+	var backBtn = document.getElementById('backToTop');
+	var timer = null;
+	var osTop = null;
+	var isTop = true;
+	backBtn.onclick = function(){
+		
+		 timer =setInterval(function () {
+			osTop = document.documentElement.scrollTop || document.body.scrollTop ;
+			if(osTop == 0){
+				clearInterval(timer);
+			}
+			isTop = true;
+			var isSpeed = Math.floor(osTop/2);
+			document.documentElement.scrollTop =  document.body.scrollTop = isSpeed;
+
+			console.log(document.documentElement.scrollTop);
+		
+		},60);
+	}
+
+	window.onscroll =function(){
+		if(!isTop){
+			clearInterval(timer);
+		}
+		isTop = false;
+	}
+}
+
+
+//Jquery实现
+//animate包含了style属性和一些非style属性，比如:scrollTop,scrollLeft 等
+
+$(function(){	$("#backToTop").click(function(){
+
+
+		$("html,body").animate({scrollTop:"0px"},'fast');
+
+	});
+})

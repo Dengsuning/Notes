@@ -1,0 +1,51 @@
+比较两个版本号 version1 和 version2。
+如果 version1 > version2 返回 1，如果 version1 < version2 返回 -1， 除此之外返回 0。
+
+你可以假设版本字符串非空，并且只包含数字和 . 字符。
+
+ . 字符不代表小数点，而是用于分隔数字序列。
+
+例如，2.5 不是“两个半”，也不是“差一半到三”，而是第二版中的第五个小版本。
+
+示例 1:
+
+输入: version1 = "0.1", version2 = "1.1"
+输出: -1
+示例 2:
+
+输入: version1 = "1.0.1", version2 = "1"
+输出: 1
+示例 3:
+
+输入: version1 = "7.5.2.4", version2 = "7.5.3"
+输出: -1
+
+
+
+/**
+ * @param {string} version1
+ * @param {string} version2
+ * @return {number}
+ */
+var compareVersion = function(version1, version2) {
+    let v1 = version1.split("."),v2 = version2.split("."),result = 0;
+    let changed = false
+    let base = v1.length > v2.length? [v1,v2]:(changed=true,[v2,v1]);
+
+
+    base[0].some((item,index,arr)=>{
+      var compareTarget = index >= base[1].length ? 0 : + base[1][index];
+
+      if(+item < compareTarget){
+        result = -1
+        return true
+      }
+      if(+item > compareTarget){
+        result = 1
+        return true
+
+      }
+    })
+
+    return changed?(result == 0 ? 0:-result) : result;
+};

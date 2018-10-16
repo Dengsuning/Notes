@@ -1,0 +1,32 @@
+
+
+String.prototype.compress = compress1
+
+function compress1(){
+    var strArr = this.split("").sort()
+    var tempArr = {}
+    var result = ""
+    strArr.forEach(function(item,index){
+        tempArr[item] = isNaN(tempArr[item])? 1 : tempArr[item] + 1
+    })
+    for(let item in tempArr){
+        result += item + tempArr[item]
+    }
+    return result
+}
+
+function compress2(){
+    var result = ""
+    var sortedArr = this.split("").sort()
+    var uniqueArr = Array.from(new Set(sortedArr))
+
+    uniqueArr.forEach(function(item,index){
+        result += item + (sortedArr.lastIndexOf(item) - sortedArr.indexOf(item) +1)
+   })
+    return result
+}
+
+
+var testStr = "asvsdxsfasesdscsasf"
+console.log(testStr.compress());
+

@@ -1,0 +1,26 @@
+要触发H5表单验证必须对表单进行提交，也就是form.submit()或者用submit按钮提交，否则不会直接进行表单验证
+
+oninvalid事件绑定在 input等表单元素上，可在事件内直接写setCustomValidaty("XXX")
+<input type="text" id="qq" required style="margin-left:30px;" oninvalid="setCustomValidity('xxx')" />
+
+内联写的oninvalid事件的setCustomValidaty会覆盖其他自定义验证信息
+
+内敛和事件绑定不能同时使用
+
+自定义表单元素的验证方式要重写submit的点击(click)事件，在事件内通过input.setCustomValidaty()即可
+
+document.querySelector("button[type='submit']").addEventListener("click", function(){
+    var input = document.querySelector("#qq")
+    var v = input.value
+
+    if(v.charAt(0) == 1) {
+        input.setCustomValidity("第一个数不能为零")
+    }
+    else if(~~v != v) {
+        input.setCustomValidity("不能输入小数")
+    }
+    else if(v.length<5 || v.length >10) {
+        input.setCustomValidity("输入的数字必须在5位以上、10位以内")
+    }
+})
+

@@ -1,0 +1,36 @@
+
+
+function getRandomString(n){
+    let str='abcdefghijkmnopqrstuvwxyz9876543210';
+    var randomStr = str.split("").sort(function(){return Math.random()-0.5}).join("")
+    return randomStr.substring(0,n)
+}
+
+
+
+/*
+Array.prototype.sort 随机算法的错误
+Array.prototype.sort(function(){return Math.random()-0.5})
+ chrome 浏览器中测试一下，可以得出结果，发现结果并不随机分布，各个位置的平均值越往后越大，这意味着这种随机算法越大的数字出现在越后面的概率越大
+ 原因：和Sort内置排序算法相关
+
+ */
+
+//经典的随机排列
+//
+function shuffle(arr){
+    var len = arr.length
+    for(let i = 0; i < len - 1; i++){
+        var index = Math.floor(Math.random() * (len - i))
+        arr[index] = [arr[len-i-1],arr[len-i-1]=arr[index]][0]
+    }
+    return arr
+}
+
+function getRandomString1(n){
+    let str='abcdefghijkmnopqrstuvwxyz9876543210';
+    var randomStr = shuffle(str.split("")).join("")
+    return randomStr.substring(0,n)
+}
+
+console.log(getRandomString(5));

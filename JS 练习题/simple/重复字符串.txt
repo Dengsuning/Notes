@@ -1,0 +1,14 @@
+function repeat(str,num){
+    if (num < 0) return ""
+    var result = ''
+    for (var i = 0; i <num; i++) {
+        result += str
+    };
+    return result
+}
+
+function repeat1(str,num){
+    return new Array(num+1).join(str)
+}
+
+console.log(repeat1("abc",-1));

@@ -1,0 +1,12 @@
+function chunk(arr,size){
+    if (size > arr.length) {return arr};
+    var arrNum = Math.ceil(arr.length/size)
+    var resultArr = []
+    for (var i = 0; i < arrNum-1; i++) {
+        resultArr.push(arr.slice(i*size,(i+1)*size))
+    };
+    resultArr.push(arr.slice((arrNum-1)*size))
+    return resultArr
+}
+
+console.log(chunk([1,2,3,4,5,6,7],5)); //[ [ 1, 2, 3, 4, 5 ], [ 6, 7 ] ]

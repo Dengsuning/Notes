@@ -1,0 +1,482 @@
+# 说明
+本文每个bootstra4的class用法和**HTML结构**相关
+结构和样式的表明用css选择器简单表示
+其中[]代表可选
+||代表或者
+其中data-*是H5中数据存储的方式，
+在bootstrap4中不能缺省，用[]进行表示，会和class分开
+# Jumbotron
+    div.jumbotron[jumbotron-fluid]
+
+    <div class="jumbotron jumbotron-fluid">
+        <h1>Title</h1>
+        <p>content</p>
+    </div>
+
+# Badge（徽章）
+徽章（Badges）主要用于突出显示新的或未读的项主要用于span标签
+
+        span.badge
+        [.badge-pill ||
+        颜色
+        .badge-default ||
+        .badge-primary ||
+        .badge-success ||
+        .badge-info ||
+        .badge-warning ||
+        .badge-danger]
+
+**徽章嵌入到按钮内：**
+
+    <button type="button" class="btn btn-primary">
+        Message <sapn class="badge badge-pill badge-light"></sapn>
+    </button>
+
+# 进度条
+div.progress
+    div>div.progress-bar[.progress-bar-striped
+ || .progress-bar-animated || .bg-success]
+
+显示长度，高度：width:70%;height:20px
+
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-info" style="width:40%">40%</div>
+        <div class="progress-bar" style="width:30%">30%</div>
+    </div>
+
+# 分页
+ul.pagination[.pagination-sm || .paginatin-lg]
+    ul>li.page-item[.active || .disable]
+        li>a.page-link
+
+    <ul class="pagination pagination-sm">
+        <li class="page-item active"><a href="" class="page-link"></a></li>
+        <li class="page-item disable"><a href="" class="page-link"></a></li>
+        <li class="page-item"><a href="" class="page-link"></a></li>
+        <li class="page-item"><a href="" class="page-link"></a></li>
+    </ul>
+
+# 卡片
+## 普通卡片
+div.card[.bg-*]
+    .card>div.card-header
+    .card>div.card-body
+        .card-body>h4.card-title
+        .card-body>p.card-text
+        .card-body>a.card-link
+    .card>div.footer
+# 图片卡片
+div.card
+    .card>img.card-img-[top||bottom]
+    .card>[.card-body || .card-image-overlay] //card-image-overlay表示图片设置为背景，文字浮于图片上方
+        .card-body>h4.card-title
+         ...
+
+    <div class="card" style="width:500px">
+      <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+      <div class="card-img-overlay">
+        <h4 class="card-title">John Doe</h4>
+        <p class="card-text">Some example text.</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+      </div>
+    </div>
+
+# 导航
+ul.nav[.flex-column ||.justify-content-center||.justify-content-end||.nav-justify||nav-pills||nav-tabs]//【垂直导航||居中||右对齐||胶囊导航||选项卡导航】
+ .nav>nav-item
+    .nav-item>.nav-link[.active.disable]
+
+    <ul class="nav nav-tabs nav-justified">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+
+## 胶囊下拉菜单
+
+
+
+## 面包屑导航
+ul.breadcrumb
+ul>li.breadcrumb-item[.active || .diable]
+    
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="">Link without class</a></li>
+        <li class="breadcrumb-item active"><a href="">Link without class</a></li>
+        <li class="breadcrumb-item"><a href="">Link without class</a></li>
+    </ul>
+
+
+# 下拉菜单
+div.dropdown
+    div>button.dropdown-toggle[data-toggle="dropdown"]
+    button+div.dropdown-menu
+        div.dropdown-menu>a.dropdown-item[.active || .disable]
+
+    <div class="dropdown">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+        Dropdown button
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item active" href="#">Link 1</a>
+        <a class="dropdown-item" href="#">Link 2</a>
+        <a class="dropdown-item" href="#">Link 3</a>
+      </div>
+    </div>
+
+**可新添加的内容和类**
+
+    <div class="dropdown-menu">
+        <a class="dropdown-item active" href="#">Link 1</a>
+        <a class="dropdown-item" href="#">Link 2</a>
+        <a class="dropdown-item" href="#">Link 3</a>
+        div.dropdown-div
+      </div>
+
+## 内嵌按钮组及下拉菜单
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary"></button>
+        <button type="button" class="btn btn-primary"></button>
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Button</button>
+        <div class="dropdown-menu">
+            <a href="" class="dropdown-item">Item1</a>
+            <a href="" class="dropdown-item">Item2</a>
+            <a href="" class="dropdown-item">Item3</a>
+        </div>
+    </div>
+    
+
+## 拆分按钮下拉菜单
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary">Sony</button>
+        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+             <span class="caret"></span>
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Tablet</a>
+            <a class="dropdown-item" href="#">Smartphone</a>
+        </div>
+    </div>
+
+# 折叠
+.button[data-toggle="collapse" data-target="#demo"]
+div#demo.collapse[.show || .fade][data-parent="#parentBox"(可选)]
+
+最简手风琴效果
+
+    <div class="parent">
+        <div>
+            <a href="#demo1" data-toggle="collapse">First</a>
+            <div id="demo1"  class="collapse" data-parent=".parent">This is the first demo</div>
+        </div>
+        <div>
+            <a href="#demo2" data-toggle="collapse">Second</a>
+            <div id="demo2"  class="collapse" data-parent=".parent">This is the second demo</div>
+        </div>
+        <div>
+            <a href="#demo3" data-toggle="collapse">Third</a>
+            <div id="demo3"  class="collapse" data-parent=".parent">This is the third demo</div>
+        </div>
+    </div>
+
+卡片式手风琴
+
+    <div id="accordion">
+    <div class="card">
+      <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseOne">
+          选项一
+        </a>
+      </div>
+      <div id="collapseOne" class="collapse show" data-parent="#accordion">
+        <div class="card-body">
+          #1 内容：菜鸟教程 -- 学的不仅是技术，更是梦想！！！
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+        选项二
+      </a>
+      </div>
+      <div id="collapseTwo" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          #2 内容：菜鸟教程 -- 学的不仅是技术，更是梦想！！！
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+          选项三
+        </a>
+      </div>
+      <div id="collapseThree" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          #3 内容：菜鸟教程 -- 学的不仅是技术，更是梦想！！！
+        </div>
+      </div>
+    </div>
+    </div>
+
+# 导航栏
+最简导航栏
+nav.navbar[.navbar-expand-xl|lg|md|sm .bg-dark ||.fixed-top||.fixed-bottom]
+    a.navbar-brand
+    ul.navbar-nav
+        li.nav-item
+            a.nav-link
+没有bg时默认白色背景，没有navbar-expand-*时，导航栏垂直排列
+
+## 折叠导航栏
+
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">Navbar</a>
+     
+      <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+     
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li> 
+        </ul>
+      </div> 
+    </nav>
+
+# 轮播
+```
+div.carousel.slide#demo[data-ride="carousel"]
+    ul.carousel-indcators
+        li[data-targte="#demo" data-slide="0"].active
+        li[data-targte="#demo" data-slide="1"]
+        li[data-targte="#demo" data-slide="2"]
+    div.carousel-inner
+        div.carousel-item.active
+            img[src="xxx.png"]
+            div.carousel-caption{this is the img caption}
+        div.carousel-item
+            img[src="xxx.png"]
+            div.carousel-caption{this is the img caption}
+        div.carousel-item
+            img[src="xxx.png"]
+            div.carousel-caption{this is the img caption}
+    a.carousel-control-prev[data-slide="prev"]
+        span.carousel-control-prev-icon
+    a.carousel-control-next[data-slide="next"]
+        span.carousel-control-next-icon
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+ 
+  <!-- 指示符 -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+ 
+  <!-- 轮播图片 -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="http://static.runoob.com/images/mix/img_fjords_wide.jpg">
+      <div class="carousel-caption">
+        <h3>第一张图片描述标题</h3>
+        <p>描述文字!</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="http://static.runoob.com/images/mix/img_nature_wide.jpg">
+      <div class="carousel-caption">
+        <h3>第二张图片描述标题</h3>
+        <p>描述文字!</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="http://static.runoob.com/images/mix/img_mountains_wide.jpg">
+      <div class="carousel-caption">
+        <h3>第三张图片描述标题</h3>
+        <p>描述文字!</p>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- 左右切换按钮 -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+ 
+</div>
+```
+
+# 模态框
+```
+button.btn.btn-primary[type="button" data-toggle="modal" data-target="#myModal"]
+div.modal.fade.#myModal
+    div.modal-dialog[.modal-sm|lg]
+        div.modal-content
+            div.modal-header
+                h4.modal-title{this is the header}
+                button.close[type="button" data-dismiss="modal"]{&times;}
+            div.modal-body
+            div.modal-footer
+                button.close[type="button" data-dismiss="modal"]{关闭}
+```
+
+# 提示框
+```
+a[href="#" data-toggle="tooltip" title="我是提示内容" data-placement="top|bottom|right|left"]{鼠标移动到这儿显示}
+$(function(){
+    $('[data-toggle="tooltip"]').tooltip()
+})
+```
+
+# 弹出框
+```
+a[href="#" data-toggle="popover" title="弹出框标题" data-content="弹出框内容" data-placement="top|bottom|right|left"][data-trigger="focus||hover"]{多次点我}
+$('[data-toggle="popover"]').popover()
+
+data-trigger:focus>>>点击其他地方可关闭弹出框，默认点击再次元素才能关闭
+             hover>>>悬浮于元素显示，移开鼠标后消失
+```
+
+# 滚动监听
+```
+<style>
+    body{position: relative;}/* 设置了data-spy="scroll" 的元素设置了relative才能起作用 */
+</style>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+...
+  <ul class="navbar-nav">
+    <li><a href="#section1">Section 1</a></li>
+    ...
+</nav>
+<div id="section1">
+  <h1>Section 1</h1>
+  <p>Try to scroll this page and look at the navigation bar while scrolling!</p>
+</div>
+...
+</body>
+```
+
+# 表单
+默认垂直排列，表单控件占满一行,
+form添加.form-inline水平排列 
+```
+<form>
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd">
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox"> Remember me
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+```
+
+bootstrap4支持以下表单控件
+input,textarea,checkbox,radio,select
+Bootstrap 支持所有的 HTML5 输入类型: text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel, 以及 color。
+
+## textarea
+```
+<div class="form-group">
+  <label for="comment">评论:</label>
+  <textarea class="form-control" rows="5" id="comment"></textarea>
+</div>
+```
+
+## checkbox
+```
+div.from-check[.form-check-inline]
+    label.form-check-label{Option1}
+        input.form-check-input[checkbox][value=""]
+    label.form-check-label{Option2}
+        input.form-check-input[checkbox][value="" type="checkbox"][disabled]
+```
+注：默认垂直排列，添加.form-check-inline水平显示,在input上添加disable标签属性可实现禁用多选框
+```
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" value="">Option 1
+  </label>
+</div>
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" value="">Option 2
+  </label>
+</div>
+<div class="form-check form-check-inline disabled">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" value="" disabled>Option 3
+  </label>
+</div>
+```
+
+## radio
+```
+div.radio
+    label{Option1}[.radio-inine]
+        input[type="radio" name="optradio"]
+div.radio
+    label{Option2}[.radio-inine]
+        input[type="radio" name="optradio"][disabled]
+```
+注：.radio-inline用于单选框水平显示
+```
+<div class="radio">
+  <label><input type="radio" name="optradio">Option 1</label>
+</div>
+<div class="radio">
+  <label><input type="radio" name="optradio">Option 2</label>
+</div>
+<div class="radio disabled">
+  <label><input type="radio" name="optradio" disabled>Option 3</label>
+</div>
+```
+
+## select
+```
+<div class="form-group">
+  <label for="sel1">下拉菜单:</label>
+  <select class="form-control" id="sel1">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+  </select>
+</div>
+```
+

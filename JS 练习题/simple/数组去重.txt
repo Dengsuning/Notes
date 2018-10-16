@@ -1,0 +1,40 @@
+Array.prototype.unique = unique2
+/*
+*Array.from(target,mapFunction) 方法从一个类似数组或可迭代对象中创建一个新的数组实例。回调函数mapFun = arr.map()
+*伪数组对象（拥有一个 length 属性和若干索引属性的任意对象，string）
+*可迭代对象（可以获取对象中的元素,如 Map和 Set 等）
+
+Set()对象自动去重
+*/
+function unique1(){
+    //临时数组，初始值为数组对象第一个元素
+    var tempArr = [this[0]]
+
+    for(let i = 1; i< this.length; i++){
+        //当遍历到的元素不在临时数组内则推入，在就不管（去重）
+        tempArr.indexOf(this[i]) == -1 ? tempArr.push(this[i]):0;
+    }
+    return tempArr
+}
+
+function unique2(){
+    //运用对象属性覆盖的特点
+    var tempArr = {}
+    var result = []
+    this.forEach(function(item,index){
+        if (isNaN(tempArr[item])) {
+            result.push(item)
+        };
+        tempArr[item] = 0
+    })
+    return result
+}
+
+
+function unique3(){
+    return Array.from(new Set(this))
+}
+
+function unique4(){
+    return [...new Set(this)]
+}

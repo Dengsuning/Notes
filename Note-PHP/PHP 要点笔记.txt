@@ -1,0 +1,130 @@
+魔术常量
+__FILE__
+__LINE__
+__FUNCTION__
+PHP_VERSION  == phpversion()
+PHP_OS
+
+变量类型
+	数字(int bool)，字符串，Boolean,array,object
+	无需关键字申明，
+	变量$开头，常量define(name,value)申明，常量不用$
+	
+	强转
+		int bool float douvle real string array object 都是方法，例如int()
+
+	
+作用域
+	函数为局部作用域，函数外都为全局作用域
+	注意：函数不能直接引用外部变量，需借助global或者$GLOBALS
+
+静态变量——仅存在于函数中，使用关键字static,申明时，不能使用表达式，比如static v = sqrt(3)是错的
+
+可变变量 
+$s = "hello";  
+$hello = "s";
+echo $$hello;
+
+链接运算符  ' . '
+数字和  . 之间需要有空格
+ . 会将操作数先转换为数字，再转换为字符串，TRUE->1
+
+字符串
+	可以使用string[1]获取单个字符，但是无法像Python那样截取
+	字符长度-》strlen(str)    含有中文：mb_strlen("就是你",charset)，charset默认为utf-8
+
+语句
+if——else if——else
+	else if 和 elseif 都能成功，但是else if 更严格，更准确
+
+switch(变量|表达式){
+	case 1: break;
+	default :
+}
+for($i = 0; $i < 3; $i++){
+
+}
+
+foreach(array as $value)
+       (array $key=>$value)
+
+while(){     }
+do{   }while()
+
+break [n];
+continue;
+
+
+
+
+数组（引用类型）
+	简写  $arr = [[1,2,3],[4,5,6]]
+	array(1,2,3)
+	array("a"=>1,"b"=>2)
+	$arr[1],arr["a"]
+
+	$arr[] = 3 //默认追加到尾部
+	unset($arr[0])   //删除的项还在，下标还在
+	
+数组长度  count($arr) // 一维
+	  count($arr,1) //多维
+多维数组长度 = 子数组个数 + 项数  $arr = [[1,2,3],[4,5,6]] 长度为8
+
+遍历多维数组
+function loopArray($arr){
+
+foreach($arr as $value){
+        if(is_array($value)){
+            loopArray($value);
+        }else{
+             echo $value . "\n";  
+        }
+    }
+}
+
+
+数组方法
+	都能接收二维数组
+max($arr)
+min($arr)
+array_reverse($arr) //逆转数组，只影响第一层数组。
+array_valus($arr)  返回一个包含给定数组中所有键值的数组，但不保留键名。
+array_count_values($arr)  返回一个数组，其元素的键名是原数组的值，键值是该值在原数组中出现的次数。
+
+explode(seperator,string) == split()  seperator 不能为""
+implode(connector,string) == join()
+range(start,index),返回指定字符或数字之间的字符或数，数组类型range("a","z")
+
+排序（影响数组本身）
+
+避免出现不同的数据类型
+
+一般数组(用于关联数组，键名会被设置为数字下标)
+	sort -  升序
+	rsort -  降序
+关联数组
+	asort - 按照值升序
+	ksort - 按照键名升序 
+
+	arsort - 按值降序
+	krsort - 按键名降序 
+搜索
+	in_array(target,$arr) return {Boolean}
+	array_search(target,$arr) return {index | false}
+	array_key_exists(key,$arr) return {index |false}
+	array_keys($arr,[limitKey]) return {array for keys }
+list ($a,$b) = $arr  = 》  解构赋值
+
+extract($arr)  // 将关联数组转为变量，变量名就是【$键名】 
+	
+
+
+
+
+
+
+
+
+
+
+
