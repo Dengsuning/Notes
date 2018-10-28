@@ -1,0 +1,85 @@
+createdAt: "2018-10-23T14:05:49.463Z"
+updatedAt: "2018-10-24T13:46:04.980Z"
+content: '''
+  
+  # alert
+  
+  ## 基本结构和样式类
+  ```
+      div.alert .alert-success.alert-dismissable.fade.show
+          button.close[type="button" data-dismiss="alert"]{times;}
+          h4.alert-heading
+          a.alert-link
+  ```
+  
+  ## 说明
+  alert提示框是一个简单的组件，几乎没有用户交互，主要的功能就是信息提示，附带关闭提示框。
+  `div.alert`是wrapper包装器,.alert是不能少的，其他的CSS类可以互相组合，说明如下：
+  * `.alert-color`
+      * color主要是bootstrap常用的几个请景色，包括primary, success,  info, warning, danger, secondary, light, dark.
+  * `.alert-dismissable+button.close[type="button" data-dismiss="alert"]{&times;}`
+      * 这个组合用于alert框的删除，点击&times;能将alert从DOM中移除。最重要的还是按钮button，button的data-dismiss属性能触发删除消失的效果。`&times;`主要是HTML特殊字符，在网页中表示为——&times;
+  * `.alert-heading`,`.alert-link`
+      * 当你向alert添加丰富的内容的时候，例如拥有标题，段落，链接的alert，可以添加以上类进行bootstrap样式渲染。
+  * `.fade.show`
+      * 该类实现了`alert`的淡入淡出效果
+  
+  ## 行为
+  ```
+      $(".alert").alert("close");
+  ```
+  实现以上代码能手动触发alert的消失移除效果。需要注意的是移除的元素会被移除DOM树，想要重新获取消失的alert需要在触发消失行为时获取.alert("close")的返回值，返回值包含了被删除元素的引用。
+  ```
+  let alerts = $(".alert").close("close")
+  ```
+  
+  # Badge 
+  badge主要用于被其他元素包裹，用作徽章标记，气泡等样式功能。
+  ## 基本结构和样式类
+  ```
+      button.badge .badge-color.badge-pill
+  ```
+  
+  ## 说明
+  Badge非常简单，一个标签就能实现，功能也很少。其中`.badge`时不能少的，适当添加其他CSS类能相应改变badge的样式。**button**也能替换成**a**标签，并且会带有**hover**效果
+  * `.badge-color`
+      *  Badge情景色，包括primary, success,  info, warning, danger, secondary, light, dark.
+  * `badge-pill`  
+      *  这个CSS类是将badge渲染成药丸形状的标签，主要是改变了`badge`的`border-radius`属性实现了圆角。
+  
+  # BreadCrumb面包屑导航
+  面包屑导航在官网的介绍也不多，主要是用于美化导航样式。
+  ## 基本结构和样式类
+  ```
+      ol.breadcrumb
+          li.breadcrumb-item .active
+          li.breadcrumb-item
+  ```
+  注意该导航的active在li上，但并不会覆盖a的默认样式，可修改源码`.breadcrumb-item.active` 为 `.breadcrumb-item    .active`
+  
+  # pagination 分页
+  pagination和面包屑导航一样，基本是用于样式美化，并没有绑定太多交互事件。用起来也非常简单。
+  ## 基本结构和样式类
+  ```
+  nav
+  	ul.pagination .pagination-size.justify-content-*
+  			li.page-item.active [disabled]
+  					a.page-link
+  							span{&laquo;&raquo;}  
+  ```
+  ## 说明
+  分页一般也是用于导航上，在父容器（如ul）上添加pagination类就完成了一半工作了。
+  * `.paginaton-size`用于定义分页大小，size可以是sm（small）或者lg（large）。
+  *  `justify-content-*`是flex属性中的定义，通过指定与justify-content-*能指定内容排列，* 可以是center,satrt,end,between,around，分别对应CSS3中justify-content:*的样式。
+  * li是分页项，`.page-item`，包裹a标签`.page-lin`k进行跳转获其他交互。注意每一项的激活和禁用状态都是在`.page-item`上的，通过类`.active`和**属性**`disabled`
+  *  `a.page-link`是包裹在`.page-item`中的，可以用作跳转等。
+  *  一般情况下是直接在`.page-item`或者`.page-link`中写入文本，例如页码，`1，2，3`。当需要添加向前或者向后的按钮时，官网给出了HTML实体符号`&laquo;`(&laquo;)和`&raquo;`(&raquo;)分别表示向前向后。也可以用`Previous`，`Next`替代。
+  
+  
+'''
+folder: "8d6b84b60f544a94df63"
+title: "alert"
+type: "MARKDOWN_NOTE"
+tags: []
+isStarred: false
+isTrashed: false

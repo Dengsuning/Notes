@@ -47,7 +47,7 @@ checkbox,radio
 以便为子元素的label标签自动添加.active.focus类，不论子标签多少个label
 <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-<label class="btn btn-secondary active">
+  <input type="checkbox" checked />
 
 -----Event
 方法		描述
