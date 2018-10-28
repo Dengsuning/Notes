@@ -1,6 +1,8 @@
 1.检查document.compatMode,可以查看浏览器工作在哪个模式：
 值BackCompat为怪异模式，值CSS1Compat为标准模式
 
+faf
+
 1. n >> m 当m小于parseInt(log2(n))时，等于 n / 2^ m
 直到m == 32*n 也就是32的倍数时，开始循环
 64>>32 // 64  64>>33 //32
